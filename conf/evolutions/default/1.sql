@@ -22,7 +22,7 @@ create table contact (
 ;
 
 create table link (
-  id                        varchar(255) not null,
+  id                        bigint not null,
   url                       varchar(80),
   title                     varchar(40),
   description               varchar(100),

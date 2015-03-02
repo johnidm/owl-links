@@ -15,7 +15,7 @@ public class Link extends Model {
 	
 	@Id 
 	@GeneratedValue
-    public String id;
+    public Long id;
 	
 	@Column(length = 80)
 	public String url;
