@@ -1,1 +1,1 @@
-web: target/start -Dhttp.port=${PORT} ${JAVA_OPTS} 
+web: target/universal/stage/bin/owl-links -Dhttp.port=${PORT} -Dconfig.resource=heroku.conf ${JAVA_OPTS} 
