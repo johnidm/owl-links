@@ -1,1 +1,1 @@
-web: target/universal/stage/bin/owl-links -Dhttp.port=$PORT
+web: target/universal/stage/bin/owl-links -Dhttp.port=$PORT -Dconfig.resource=heroku.conf
