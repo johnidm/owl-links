@@ -1,0 +1,70 @@
+@(links: List[Link])
+
+<div class="container-title">
+	<h3 class="white-text">Últimos links cadastrados</h3>
+			
+	<h5 class="white-text">	
+		@(if (links.size != 0) { "veja os últimos "  + links.size  + " links cadastrados" } else { "que pena, nenhum link foi cadastrado" })
+	</h5>
+	
+</div>
+
+<div class="align-left">
+
+@links.grouped(4).map { group =>
+  	<div class="row">
+	@group.map { item =>
+		
+		<div class="col s3">
+        	<div class="card">
+            	<div class="card-content black-text">
+              		<h6>@item.title</h6>   
+              		
+              		
+              		<a id-show="@item.id" class="trigger secondary-content btn-floating waves-effect waves-light blue darken-4 rigth" href="javascript:;"><i class="mdi-navigation-more-vert"></i></a> 
+            	</div>
+            	
+	            <div class="card-action">                          	
+	              	<a href="http://@item.url" target="_blanck"><i class="mdi-maps-directions-walk right"></i>Acesse</a>
+	            </div>
+	        </div>    			
+		</div>			
+	}
+	</div>	  
+}
+
+</div>
+
+@for(link <- links) {
+	
+	<div class="modal-wrapper modal-show-1">
+		<div class="modal">
+        	<div class="head">
+        		<h4>
+        			<span class="left white-text">@link.title</span>
+          			<a class="btn-close trigger" id-show="@{link.id}" href="javascript:;"></a>
+          			
+          		</h4>
+        	</div>
+        	<div class="content">        		
+        		
+        		<h5>@link.url</h5>
+        		
+        		<hr>
+        		        		
+        		<h5 class="left">@link.description</h5>
+        		
+        		
+        	</div>
+      	</div>
+    </div>
+	
+}
+
+    
+  
+
+
+	
+    
+ 

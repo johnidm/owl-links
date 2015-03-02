@@ -1,0 +1,23 @@
+@()
+
+@import scala.util.Random
+
+<nav>
+    <div class="nav-wrapper">
+    	<a id="logo-container" href="index.html" class="brand-logo">
+    		<img src="@routes.Assets.at("images/logo-owl-" + {Random.nextInt(20) + 1} + ".png")" id="logo" alt="Jakub Sobotka logo">
+    	</a>
+    	  
+      <ul id="nav-mobile" class="right hide-on-med-and-down">     
+      	        
+        <li><a href="#"><i class="mdi-action-home black-text left"></i><span class="black-text">Início</span></a></li>        
+        <li><a href="#newslatter"><i class="mdi-action-receipt black-text left"></i><span class="black-text">Newslatter</span></a></li>
+        <li><a href="#showlinks"><i class="mdi-content-link black-text left"></i><span class="black-text">Links</span></a></li>        
+        
+        <li><a href="#api"><i class="mdi-device-battery-charging-full black-text left"></i><span class="black-text">API</span></a></li>
+                
+        <li><a href="#contact"><i class="mdi-communication-quick-contacts-mail black-text left"></i><span class="black-text">Contato</span></a></li>
+                
+      </ul>
+    </div>
+  </nav>

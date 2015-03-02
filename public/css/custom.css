@@ -1,0 +1,344 @@
+@font-face {
+    font-family: Inconsolata;
+    src: url(../font/inconsolata.woff);
+}
+
+/* Materialize Custom */
+footer.page-footer {
+	margin-top: 0px;
+}
+
+#contact .input-field .prefix.active {
+	color: #01579b;  /* light-blue darken-4 */
+}
+
+#contact .input-field input[type=text]:focus + label, 
+#contact .input-field input[type=email]:focus + label,
+#contact .input-field textarea:focus.materialize-textarea + label {
+    color: #01579b;  /* light-blue darken-4 */
+}
+
+#contact input[type=text]:focus, 
+#contact input[type=email]:focus,
+#contact textarea:focus.materialize-textarea {
+  /* light-blue darken-4 */
+  border-bottom: 1px solid #01579b;
+  -webkit-box-shadow: 0 1px 0 0 #01579b;
+  -moz-box-shadow: 0 1px 0 0 #01579b;
+  box-shadow: 0 1px 0 0 #01579b;
+}
+
+#newslatter .input-field .prefix.active {
+	color: #1b5e20;  /* green darken-4 */
+}
+
+#newslatter .input-field input[type=text]:focus + label, 
+#newslatter .input-field input[type=email]:focus + label {
+    color: #1b5e20;  /* green darken-4 */
+}
+
+#newslatter input[type=text]:focus, 
+#newslatter input[type=email]:focus {
+  /* light-blue darken-4 */
+  border-bottom: 1px solid #1b5e20;
+  -webkit-box-shadow: 0 1px 0 0 #1b5e20;
+  -moz-box-shadow: 0 1px 0 0 #1b5e20;
+  box-shadow: 0 1px 0 0 #1b5e20;
+}
+ 
+
+#collectlink .input-field .prefix.active {
+	color: #e65100;  /* orange darken-4 */
+}
+
+#collectlink .input-field input[type=text]:focus + label {
+    color: #e65100;  /* orange darken-4 */
+}
+
+#collectlink input[type=text]:focus {
+  /* orange darken-4 */
+  border-bottom: 1px solid #e65100;
+  -webkit-box-shadow: 0 1px 0 0 #e65100;
+  -moz-box-shadow: 0 1px 0 0 #e65100;
+  box-shadow: 0 1px 0 0 #e65100;
+}
+
+/* End */
+
+body, html
+{
+	background-color: white !important;
+	font-family: 'Inconsolata';
+}
+
+nav {
+	position: fixed;
+	background: #FFF;	
+	z-index: 999;
+	font-family: 'Roboto';
+}
+
+.intro
+{
+	text-align: center;
+	padding-top: 6%;
+	padding-bottom: 2%;	
+}
+
+
+#collectlink input[type=text] {
+	font-size: 30px;
+	text-align: center;
+}
+
+#collectlink .card {
+	padding: 30px;
+}
+
+#collectlink p.title {
+	font-size: 30px;
+	font-weight: 200;
+	margin-top: 0!important;
+	margin-bottom: 30px!important;
+	color: #00BCD4;
+	text-align: center;	
+}
+
+.color-default {
+	background: #00bcd4 !important;
+}
+
+.container-title {	
+	text-align: center;
+	margin-bottom: 20px;
+	margin-top: 40px;
+}
+
+.container-title hr
+{
+	width: 40px;
+	margin-bottom: 20px;
+	
+}
+
+#showlinks .card {
+	font-family: 'Roboto';	
+}
+
+#contact {	
+		
+}
+
+#newslatter {	
+	
+		
+	
+}
+
+#newslatter input[type=text], #newslatter input[type=email], #newslatter label {
+	font-size: 20px;	
+}
+
+#contact input[type=text], #contact input[type=email], #contact textarea, #contact label {
+	font-size: 20px;	
+}
+
+
+.section-box {	
+	padding-bottom: 20px;
+	padding-top: 20px;
+	text-align: center;
+	height: auto;
+	min-height: 0;
+}
+
+
+.color-b-alpha {
+	background: white !important;
+}
+
+.color-b-beta {
+	background: #fad763 !important;
+}
+
+.align-right {
+	text-align: right;
+}
+
+.align-left {
+	text-align: left;
+}
+
+.notify h1 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  padding: .1em 0;
+  color: #444;
+	position: relative;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: center;
+}
+.notify h1:before,
+.notify h1:after {
+  content: "";
+  position: relative;
+  display: inline-block;
+  width: 50%;
+  height: 1px;
+  vertical-align: middle;
+  background: #f0f0f0;
+}
+.notify h1:before {    
+  left: -.5em;
+  margin: 0 0 0 -50%;
+}
+.notify h1:after {    
+  left: .5em;
+  margin: 0 -50% 0 0;
+}
+.notify h1 > span {
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+}
+
+.notify p {
+  display: block;
+  font-size: 1.5em;
+  line-height: 1em;
+  margin-bottom: 22px;
+}
+
+.notifications {
+  position: absolute;
+  right: 30px;
+  top: 10%;
+  z-index: 9999
+}
+
+.notify {
+  display: block;
+  background: #fff;
+  padding: 1px 18px;
+  max-width: 400px;
+  margin: 0 auto;
+  cursor: pointer;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px;
+
+
+}
+
+.notify h1 { margin-bottom: 6px; }
+
+.successbox h1 { color: #678361; }
+.errorbox h1 { color: #6f423b; }
+
+.successbox h1:before, .successbox h1:after { background: #cad8a9; }
+.errorbox h1:before, .errorbox h1:after { background: #d6b8b7; }
+
+.notify .alerticon { 
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+
+.modal-wrapper {
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0; left:0;
+  
+  visibility:hidden;
+  opacity:0;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  
+  z-index: 99999;
+}
+
+.modal-wrapper.open{
+  opacity:1;
+  visibility:visible;
+}
+
+.modal-wrapper .modal{
+  width:600px;
+  height:400px;
+  display:block;
+  margin:50% 0 0 -300px;
+  position:relative;
+  top:50%; left:50%;
+  background:#fff;
+  opacity:0;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.modal-wrapper.open .modal{
+  margin-top:-200px;
+  opacity:1;
+}
+
+.modal-wrapper .head{
+  width:100%;
+  height:70px;
+  padding:1.5em 5%;
+  overflow:hidden;
+  background:#01bce5;
+}
+
+.modal-wrapper  .btn-close{
+  width:32px;
+  height:32px;
+  display:block;
+  float:right;
+}
+
+.modal-wrapper  .btn-close::before, .btn-close::after{
+  content:'';
+  width:32px;
+  height:6px;
+  display:block;
+  background:#fff;
+}
+
+.modal-wrapper  .btn-close::before{
+  margin-top:12px;
+  -webkit-transform:rotate(45deg);
+  -moz-transform:rotate(45deg);
+  -o-transform:rotate(45deg);
+  transform:rotate(45deg);
+}
+
+.modal-wrapper  .btn-close::after{
+  margin-top:-6px;
+  -webkit-transform:rotate(-45deg);
+  -moz-transform:rotate(-45deg);
+  -o-transform:rotate(-45deg);
+  transform:rotate(-45deg);
+}
+
+.modal-wrapper .content{
+  padding:5%;
+}
+
+
+#logo {
+	position: relative;
+	height: 3.5rem;
+	top: 5px;
+	margin-left: 10px;
+}
