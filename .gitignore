@@ -13,3 +13,10 @@ dist
 /.project
 /RUNNING_PID
 /.settings
+
+activator
+activator.bat
+activator-launch-1.2.12.jar
+
+./cache
+
