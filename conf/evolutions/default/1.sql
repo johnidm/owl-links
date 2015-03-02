@@ -4,20 +4,20 @@
 # --- !Ups
 
 create table collectlink (
-  id                        bigint auto_increment not null,
+  id                        bigint not null,
   link                      varchar(80),
-  signedup                  datetime,
+  signedup                  timestamp,
   constraint pk_collectlink primary key (id))
 ;
 
 create table contact (
-  id                        bigint auto_increment not null,
+  id                        bigint not null,
   firstname                 varchar(30),
   lastname                  varchar(50),
   email                     varchar(100),
   site                      varchar(80),
   message                   varchar(1000),
-  signedup                  datetime,
+  signedup                  timestamp,
   constraint pk_contact primary key (id))
 ;
 
@@ -26,41 +26,44 @@ create table link (
   url                       varchar(80),
   title                     varchar(40),
   description               varchar(100),
-  signedup                  datetime,
+  signedup                  timestamp,
   constraint pk_link primary key (id))
 ;
 
 create table newslatter (
-  id                        bigint auto_increment not null,
+  id                        bigint not null,
   name                      varchar(80),
   email                     varchar(100),
-  signedup                  datetime,
+  signedup                  timestamp,
   constraint pk_newslatter primary key (id))
 ;
 
-create table user (
-  email                     varchar(255) not null,
-  name                      varchar(255),
-  password                  varchar(255),
-  constraint pk_user primary key (email))
-;
+create sequence collectlink_seq;
+
+create sequence contact_seq;
+
+create sequence link_seq;
+
+create sequence newslatter_seq;
 
 
 
 
 # --- !Downs
 
-SET FOREIGN_KEY_CHECKS=0;
+drop table if exists collectlink cascade;
 
-drop table collectlink;
+drop table if exists contact cascade;
 
-drop table contact;
+drop table if exists link cascade;
 
-drop table link;
+drop table if exists newslatter cascade;
 
-drop table newslatter;
+drop sequence if exists collectlink_seq;
 
-drop table user;
+drop sequence if exists contact_seq;
 
-SET FOREIGN_KEY_CHECKS=1;
+drop sequence if exists link_seq;
+
+drop sequence if exists newslatter_seq;
 
