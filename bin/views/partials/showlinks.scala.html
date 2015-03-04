@@ -16,12 +16,14 @@
 	@group.map { item =>
 		
 		<div class="col s3">
-        	<div class="card">
+        	<div class="card page-wrapper page-show-@{item.id}">
             	<div class="card-content black-text">
               		<h6>@item.title</h6>   
-              		
-              		
-              		<a id-show="@item.id" class="trigger secondary-content btn-floating waves-effect waves-light blue darken-4 rigth" href="javascript:;"><i class="mdi-navigation-more-vert"></i></a> 
+              		              		
+              		<a id-show="@item.id" class="trigger secondary-content btn-floating waves-effect waves-light blue darken-4 rigth" href="javascript:;">
+              			<i class="mdi-navigation-more-vert"></i>
+              		</a>
+              		 
             	</div>
             	
 	            <div class="card-action">                          	
@@ -37,7 +39,7 @@
 
 @for(link <- links) {
 	
-	<div class="modal-wrapper modal-show-1">
+	<div class="modal-wrapper modal-show-@{link.id}">
 		<div class="modal">
         	<div class="head">
         		<h4>
