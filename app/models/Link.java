@@ -23,7 +23,7 @@ public class Link extends Model {
 	@Column(length = 40)
 	public String title;
 	
-	@Column(length = 100)
+	@Column(length = 2000)
 	public String description;
 	
 	@Formats.DateTime(pattern="yyyy-MM-dd hh:mm:ss")

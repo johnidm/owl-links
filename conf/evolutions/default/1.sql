@@ -25,7 +25,7 @@ create table link (
   id                        bigint not null,
   url                       varchar(80),
   title                     varchar(40),
-  description               varchar(100),
+  description               varchar(2000),
   signedup                  timestamp,
   constraint pk_link primary key (id))
 ;
