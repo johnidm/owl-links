@@ -19,24 +19,25 @@ public class ServicesV1 extends Controller {
 		}		
 		
 		if (!Utils.validRequestApiKey(apikey)) {			
-			return internalServerError("Erro");
+			return internalServerError("Erro API-Key");
 		}			
 				
-		ResquestFormat rf = Utils.getContentType(format);
-		
-		response().setContentType(String.format("%s; charset=utf-8", format, rf.contentType));
+		ResquestFormat rf = Utils.getContentType(format);				
 
+		response().setContentType(String.format("%s; charset=utf-8", rf.contentType));
+		
 		switch (rf) {
 		case JSON:
+			
 			return ok(Json.toJson(Link.find.where().orderBy("id").findList()));	
 			
 		case XML:
 			//System.out.println(XPath.selectText("links", Link.find.where().orderBy("id").findList()));
-			return ok(  );
+			return status(NOT_IMPLEMENTED) ;
 		
 			
 		default:
-			return internalServerError();
+			return status(NOT_IMPLEMENTED) ;
 		}
 		
 	}

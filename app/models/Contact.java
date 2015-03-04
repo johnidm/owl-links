@@ -34,7 +34,7 @@ public class Contact extends Model {
 			
 	
 	@Column(length=100)
-	@Email
+	
 	public String email;
 		
 	@Column(length=80)

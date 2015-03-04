@@ -21,8 +21,7 @@ public class Newslatter  extends Model {
 	@Column(length = 80)
 	public String name;
 	
-	@Column(length=100)
-	@Email
+	@Column(length=100)	
 	public String email;
 	
 	@Formats.DateTime(pattern="yyyy-MM-dd hh:mm:ss")

@@ -5,6 +5,7 @@ import utils.Utils;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+import org.apache.commons.lang3.StringUtils;
 
 public class Collectlinks extends Controller {
 	
@@ -17,13 +18,17 @@ public class Collectlinks extends Controller {
     	
     	Collectlink collectlink = form.get();
     	
+    	
+    	collectlink.link = StringUtils.join( "http://", collectlink.link);
+    	    	
+    	
         if (form.hasErrors()) { 
         	flash("error", "Falha ao gravar o registro.");
         	return redirect(routes.Application.index());        	
         }
         
-        if (!Utils.validUrl(collectlink.link)) {        	
-        	flash("error", "O link que você informou é inválido. Verifique se é um domínio válido.");
+        if (!Utils.validUrl( collectlink.link )) {        	
+        	flash("error", String.format("A URL \"%s\" que você informou é inválida.", collectlink.link));
         	return redirect(routes.Application.index());        	
         }
         
@@ -38,3 +43,5 @@ public class Collectlinks extends Controller {
 	
 
 }
+
+

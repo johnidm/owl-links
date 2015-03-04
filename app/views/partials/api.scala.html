@@ -3,8 +3,9 @@
 <div class="container-title">
 	<h3 class="">API</h3>
 	
-	<a class="waves-effect waves-light btn-large"><i class="mdi-action-wallet-giftcard left"></i>Detalhes URI</a>	
-	<a class="waves-effect waves-light btn-large"><i class="mdi-action-settings-input-hdmi left"></i>Gerar API KEY</a>
+	<a href="#modal-uri" class="waves-effect waves-light btn-large modal-trigger"><i class="mdi-action-wallet-giftcard left"></i>URI</a>
+		
+	<a id="generate-api-key" href="#modal-api-key" class="waves-effect waves-light btn-large modal-trigger"><i class="mdi-action-settings-input-hdmi left"></i>Gerar API KEY</a>
 	
 		
 	<div class="row ">
@@ -27,7 +28,7 @@
 <span style='color:#800080; '>}</span><span style='color:#808030; '></span>
 </pre>          	
             	
-					<h5>XML:</h5>
+					
 					          
              	</div>
     		</div>
@@ -48,7 +49,7 @@
 <span style='color:#800080; '>}</span>
 </pre>				
 					
-					<h5>XML:</h5>
+					
              	</div>
     		</div>
       </div>     
@@ -56,3 +57,31 @@
     </div>	
 		
 </div>
+  
+ 
+  <div id="modal-uri" class="modal">
+    <div class="modal-content">     
+      
+      <h4 class="pink-text text-darken-4">URI</h4>
+      <h5 class="indigo-text text-darken-4">http://owl-links.herokuapp.com/api/v1/<span class="pink-text text-accent-3">&lt;api-key&gt;</span>/links.json</h5>           
+      
+      <h6 class="red-text text-darken-4">http://owl-links.herokuapp.com/api/v1/2F-aTxZ/links.json</h6>
+     
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="waves-effect waves-light btn modal-action modal-close pink darken-4"><i class="mdi-navigation-close left"></i>Fechar</a>
+    </div>
+  </div>
+  
+    <div id="modal-api-key" class="modal">
+    <div class="modal-content">     
+      
+      <h4 class="pink-text text-darken-4">API Key</h4>
+      <h3 id="text-api-key" class="indigo-text text-darken-4"></h3>           
+     
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="waves-effect waves-light btn modal-action modal-close pink darken-4"><i class="mdi-navigation-close left"></i>Fechar</a>
+    </div>
+  </div>
+  

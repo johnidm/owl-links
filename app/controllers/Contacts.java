@@ -26,8 +26,8 @@ public class Contacts extends Controller {
         	return redirect(routes.Application.index());        	
         }
     	
-    	if (Utils.isEmpty(contact.email)) {        	
-        	flash("error", "É necessário informar o seu e-mail.");
+    	if (!Utils.validEmail(contact.email)) {        	
+        	flash("error", "É necessário informar um e-mail válido.");
         	return redirect(routes.Application.index());        	
         }
    	    	

@@ -17,13 +17,13 @@ public class Newslatters extends Controller {
    	    
     	Newslatter newslatter = form.get();
     	
-    	if (newslatter.name.trim().isEmpty()) {
-    		flash("error", "É necessário informa o seu nome.");
+    	if (Utils.isEmpty(newslatter.name)) {
+    		flash("error", "É necessário informar seu nome.");
     		return redirect(routes.Application.index());
     	}
     	
-    	if (Utils.validEmail(newslatter.email)) {
-    		flash("error", "É necessário informa o seu nome.");
+    	if (!Utils.validEmail(newslatter.email)) {
+    		flash("error", "É necessário informar um e-mail válido.");
     		return redirect(routes.Application.index());
     	}
     	
