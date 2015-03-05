@@ -1,11 +1,14 @@
 package utils;
 
+
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.validator.GenericValidator;
-
 
 import play.Logger;
 
@@ -107,8 +110,15 @@ public class Utils {
 		return formats.get(format);
 	}
 	
-	
-	
+	public static String dateNow() {
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+		
+		LocalDateTime dateTime = LocalDateTime.now();
+		
+		return dateTime.format(formatter);
+		
+	}
 
 }
 
