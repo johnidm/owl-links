@@ -20,7 +20,7 @@ import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
 
-import play.api.Play;
+import play.Play;
 import freemarker.cache.TemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.DefaultObjectWrapper;
@@ -34,7 +34,7 @@ public class MailNotifycation {
 	
 	private final static String EMAIL = "johni.douglas.marangon@gmail.com";
 	
-	private final static String PASSWORD = "";
+	private final static String PASSWORD = "aeG4@ecf";
 			
 	
 	private static HtmlEmail factoryEmail() throws EmailException {
@@ -81,10 +81,11 @@ public class MailNotifycation {
 	
 	
 	private static String getTemplate() throws IOException, TemplateException {
+
 		
 		Configuration cfg = new Configuration(Configuration.VERSION_2_3_22);		
 		cfg.setDefaultEncoding("UTF-8");		
-		cfg.setDirectoryForTemplateLoading( new File( Play.current().path() + "/app/templates/" ) );		
+		cfg.setDirectoryForTemplateLoading( new File(Play.application().configuration().getString( "templates.dir" ) ) );		
 				
 		Map<String, Object> data = new HashMap<String, Object>();		
 				                
