@@ -10,12 +10,16 @@ scalaVersion := "2.11.5"
 libraryDependencies ++= Seq(
   "mysql" % "mysql-connector-java" % "5.1.34",
   "org.postgresql" % "postgresql" % "9.3-1103-jdbc41",
-  "commons-validator" % "commons-validator" % "1.4.1",
+  "commons-validator" % "commons-validator" % "1.4.1",  
+  "org.apache.commons" % "commons-email" % "1.3.3",   
+  "org.freemarker" % "freemarker" % "2.3.22",       
   javaJdbc,
   javaEbean,
   cache,
   javaWs
 )
+
+
 
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint")
 

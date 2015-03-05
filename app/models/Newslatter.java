@@ -8,11 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import play.data.format.Formats;
-import play.data.validation.Constraints.Email;
+
 import play.db.ebean.Model;
 
 @Entity
 public class Newslatter  extends Model {
+
+
+	private static final long serialVersionUID = 1L;
 
 	@Id 
 	@GeneratedValue

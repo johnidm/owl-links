@@ -46,11 +46,7 @@ public class Contacts extends Controller {
         flash("success","Seu contato foi registrado. Obrigado!");
         
         return redirect(routes.Application.index());
-    }	
-	
-	private static boolean validEmail(String email) {
-		return true;
-	}
+    }
 	
 	
 

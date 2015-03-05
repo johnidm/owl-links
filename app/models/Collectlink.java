@@ -14,6 +14,9 @@ import play.db.ebean.Model;
 @Entity
 public class Collectlink extends Model {
 	
+	
+	private static final long serialVersionUID = 1L;
+
 	@Id 
 	@GeneratedValue
     public Long id;

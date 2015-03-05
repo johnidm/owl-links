@@ -13,6 +13,9 @@ import play.db.ebean.*;
 @Entity
 public class Link extends Model {
 	
+	
+	private static final long serialVersionUID = 1L;
+
 	@Id 
 	@GeneratedValue
     public Long id;
