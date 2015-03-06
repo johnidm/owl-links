@@ -8,6 +8,26 @@ footer.page-footer {
 	margin-top: 0px;
 }
 
+
+
+#unsubscribe .input-field .prefix.active {
+	color: #ff3d00 ; 
+}
+
+#unsubscribe .input-field input[type=email]:focus + label {
+    color: #ff3d00;  
+}
+
+#unsubscribe input[type=email]:focus {
+  
+  border-bottom: 1px solid #ff3d00;
+  -webkit-box-shadow: 0 1px 0 0 #ff3d00;
+  -moz-box-shadow: 0 1px 0 0 #ff3d00;
+  box-shadow: 0 1px 0 0 #ff3d00;
+}
+
+#unsubscribe hr { background-color: #ff3d00; height: 2px; border: 0; }
+
 #contact .input-field .prefix.active {
 	color: #01579b;  /* light-blue darken-4 */
 }
@@ -125,21 +145,15 @@ nav {
 	font-family: 'Roboto';	
 }
 
-#contact {	
-		
-}
-
-#newslatter {	
-	
-		
-	
-}
-
 #newslatter input[type=text], #newslatter input[type=email], #newslatter label {
 	font-size: 20px;	
 }
 
 #contact input[type=text], #contact input[type=email], #contact textarea, #contact label {
+	font-size: 20px;	
+}
+
+#unsubscribe input[type=email], #unsubscribe label {
 	font-size: 20px;	
 }
 
@@ -343,4 +357,8 @@ nav {
 	margin-left: 10px;
 }
 
+.img-unsubscribe {
+	width: 30%; 
+	height: 30%;
 
+}

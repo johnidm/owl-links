@@ -1,0 +1,47 @@
+@(emailForm : DynamicForm)
+@import helper._
+
+@main("Owl Links") {
+
+	@menu()
+
+	<div style="padding-top:5%"></div>
+	
+	<section id="unsubscribe">
+     	<div class="container section-box deep-orange-text text-accent-3"> 
+    		<h5>Cancelar assinatura</h5>    		
+    		<hr class="deep-orange accent-3">   		    
+     	</div>	
+	   	 
+    	<div class="container">
+
+			@form(routes.Newslatters.confirmaUnsubscribe(), 'novalidate -> "novalidate") {
+
+				<div class="row">
+		   		 	<div class="col s12 center-align">		   		
+		   				<img class="img-unsubscribe" src="@routes.Assets.at("images/unsubscribe.png")">
+		   			</div>		   			
+		   		</div>
+				
+		    	<div class="row">
+				      <div class="input-field col s6 offset-s3">
+				        <input id="email" type="email" name="email" class="validate" autocomplete="off">
+				        <label for="email">E-mail</label>
+				      </div>	     
+		   		</div>			
+		   		
+		   		<div class="row">
+		   		 	<div class="col s12 center-align">		   		
+		   				<button type="submit" class="waves-effect waves-light btn-large deep-orange accent-3"><i class="mdi-content-content-cut left"></i>Confirmar</button>
+		   			</div>		   			
+		   		</div>
+	
+			}
+	
+		</div>
+		
+	</section>
+
+	@footer()
+
+}

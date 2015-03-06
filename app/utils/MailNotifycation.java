@@ -30,12 +30,10 @@ import freemarker.template.TemplateException;
 
 
 public class MailNotifycation {
-
 	
 	private final static String EMAIL = "johni.douglas.marangon@gmail.com";
 	
-	private final static String PASSWORD = "";
-			
+	private final static String PASSWORD = "aeG4@ecf";
 	
 	private static HtmlEmail factoryEmail() throws EmailException {
 		

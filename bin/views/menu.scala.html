@@ -21,3 +21,26 @@
       </ul>
     </div>
   </nav>
+  
+  
+  
+  
+  <div class="notifications">
+	    @if(flash.containsKey("error")) {
+	    	<div class="notify errorbox">
+		        <h1>Falha!</h1>
+		        <span class="alerticon"><img src="@routes.Assets.at("images/error.png")"></span>
+		        <p>@flash.get("error")</p>
+		    </div>
+		    	   	   
+		}
+	    
+	    @if(flash.containsKey("success")) {
+	    	<div class="notify successbox">
+			    <h1>Ok!</h1>
+			      <span class="alerticon"><img src="@routes.Assets.at("images/check.png")"></span>
+			      <p>@flash.get("success")</p>
+			 </div>
+		    	   	   
+		}
+	</div> 

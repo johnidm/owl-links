@@ -34,6 +34,7 @@ create table newslatter (
   id                        bigint not null,
   name                      varchar(80),
   email                     varchar(100),
+  subscribe                 varchar(1),
   signedup                  timestamp,
   constraint pk_newslatter primary key (id))
 ;

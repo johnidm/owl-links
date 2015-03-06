@@ -7,13 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import play.data.format.Formats;
+import com.avaje.ebean.Ebean;
 
+import play.data.format.Formats;
 import play.db.ebean.Model;
+import play.libs.F.Option;
 
 @Entity
 public class Newslatter  extends Model {
-
 
 	private static final long serialVersionUID = 1L;
 
@@ -27,10 +28,20 @@ public class Newslatter  extends Model {
 	@Column(length=100)	
 	public String email;
 	
+	@Column(length=1)	
+	public String subscribe = "S";	
+	
 	@Formats.DateTime(pattern="yyyy-MM-dd hh:mm:ss")
 	public Date signedup = new Date();
 	
 	public static Finder<Long,Link> find = new Finder<Long,Link>(Long.class, Link.class);
+		
+	public static Newslatter findByEmail(String email) {
+		
+		Newslatter newslatter = (Newslatter) Ebean.find(Newslatter.class).where().eq("email", email).findUnique();
+		
+		return newslatter;
+	}
 	
 }
 
