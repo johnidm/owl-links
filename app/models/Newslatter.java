@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,11 +35,16 @@ public class Newslatter  extends Model {
 	@Formats.DateTime(pattern="yyyy-MM-dd hh:mm:ss")
 	public Date signedup = new Date();
 	
-	public static Finder<Long,Link> find = new Finder<Long,Link>(Long.class, Link.class);
+	public static Finder<Long,Newslatter> find = new Finder<Long, Newslatter>(Long.class, Newslatter.class);
+	
+	
+	public static List<Newslatter> listSubscribe () {
+		return	Ebean.find(Newslatter.class).where().eq("subscribe", "S").findList();		
+	}
 		
 	public static Newslatter findByEmail(String email) {
 		
-		Newslatter newslatter = (Newslatter) Ebean.find(Newslatter.class).where().eq("email", email).findUnique();
+		Newslatter newslatter = Ebean.find(Newslatter.class).where().eq("email", email).findUnique();
 		
 		return newslatter;
 	}

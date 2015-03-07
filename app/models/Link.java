@@ -1,38 +1,27 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.jongo.marshall.jackson.oid.ObjectId;
 
-import play.data.format.Formats;
-import play.db.ebean.*;
+import com.fasterxml.jackson.annotation.JsonFilter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity
-public class Link extends Model {
+@JsonFilter("linkFilter") 
+public class Link  {
+	 
+    public String _id;
 	
-	
-	private static final long serialVersionUID = 1L;
-
-	@Id 
-	@GeneratedValue
-    public Long id;
-	
-	@Column(length = 80)
-	public String url;
-	
-	@Column(length = 40)
-	public String title;
-	
-	@Column(length = 2000)
+	public String url;	
+	public String title;	
 	public String description;
 	
-	@Formats.DateTime(pattern="yyyy-MM-dd hh:mm:ss")
-	public Date signedup = new Date();	
+	public List<String> tags;
 	
-	public static Finder<Long,Link> find = new Finder<Long,Link>(Long.class, Link.class);	
+	public Date signedup;	
+			
 	
 	
 }

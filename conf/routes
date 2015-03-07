@@ -8,8 +8,6 @@ GET     /                           controllers.Application.index()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
-#GET   	/links		          			controllers.Links.index()
-
 POST	/contatc/submit					controllers.Contacts.submit()
 POST	/newslatter/subcribe			controllers.Newslatters.subscribe()
 
@@ -17,6 +15,7 @@ GET     /newslatter/unsubscribe			controllers.Newslatters.unsubscribe()
 POST    /newslatter/confirmaUnsubscribe controllers.Newslatters.confirmaUnsubscribe()
 
 POST	/collectlink/send				controllers.Collectlinks.send()
+
 GET     /api/v1/:apikey/links.:format	controllers.ServicesV1.links(apikey, format : String)
 
 #GET     /:page       controllers.Application.page(page, format ?= "html")

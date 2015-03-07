@@ -23,7 +23,7 @@ public class Utils {
 			{
 		        
 				put("json",ResquestFormat.JSON);
-				put("xml", ResquestFormat.XML);
+				//put("xml", ResquestFormat.XML);
 		        
 		    }};
 			
@@ -87,9 +87,8 @@ public class Utils {
 				  }
 				
 			}
-						
-			Logger.debug(api_key);
-			Logger.debug(apikey);
+			
+			
 			
 			return api_key.equals(apikey);
 			
