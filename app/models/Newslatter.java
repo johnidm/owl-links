@@ -36,8 +36,7 @@ public class Newslatter  extends Model {
 	public Date signedup = new Date();
 	
 	public static Finder<Long,Newslatter> find = new Finder<Long, Newslatter>(Long.class, Newslatter.class);
-	
-	
+		
 	public static List<Newslatter> listSubscribe () {
 		return	Ebean.find(Newslatter.class).where().eq("subscribe", "S").findList();		
 	}
