@@ -1,7 +1,5 @@
 package utils;
 
-
-
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -22,54 +20,46 @@ import org.apache.commons.mail.HtmlEmail;
 
 import play.Logger;
 import play.Play;
-
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
-// 404 
-
 
 public class MailNotifycation {
 	
-	private final static String EMAIL = " owl.links.newslatter@gmail.com";
-	
+	private final static String EMAIL = " owl.links.newslatter@gmail.com";	
 	private final static String PASSWORD = "c4#bJk8Rs";
-	
+
 	private static HtmlEmail factoryHTMLEmail() throws EmailException {
 		
 		HtmlEmail email = new HtmlEmail();
 		
 		email.setHostName("smtp.gmail.com");
 		email.setSmtpPort(465);				
-		email.setAuthenticator(new DefaultAuthenticator(EMAIL, PASSWORD));
-		email.setDebug(false);
-		email.setSSLOnConnect(true);
-		
+		email.setAuthenticator(new DefaultAuthenticator(EMAIL, PASSWORD));		
+		email.setSSLOnConnect(true);		
 		email.setFrom(EMAIL);
 		
 		return email;				
 	}
 	
-	private static InternetAddress factoryInternetAddress(String name, String email) {
 		
-		try {
-			return new InternetAddress(email, name);
-		} catch (UnsupportedEncodingException e) {			
-			Logger.error(String.format("Falha ao incluir o email %s na lista de news", email));
-			return null;
-		}
-		
-	}
-	
-	
 	private static List<InternetAddress> factoryListEmails() throws UnsupportedEncodingException {
 			
 		List<InternetAddress> list = new ArrayList<InternetAddress>();
 				
 		List<Newslatter> news = Newslatter.listSubscribe();
 				
-		news.forEach(n -> list.add( factoryInternetAddress(n.email, n.name) ) );					
+		news.forEach(n -> {
+			InternetAddress email;
+			try {
+				email = new InternetAddress(n.email, n.name);
+				list.add(email);
+			} catch (Exception e) {			
+				e.printStackTrace();
+			}
+		 	
+		});					
 											
 		return list; 		
 	}
@@ -78,29 +68,25 @@ public class MailNotifycation {
 	public static void send() throws EmailException, IOException, TemplateException {
 		
 		HtmlEmail email = factoryHTMLEmail();
-			
-		
-		List<InternetAddress> emails = factoryListEmails();
-		
+					
+		List<InternetAddress> emails = factoryListEmails();		
 		if ( emails.isEmpty() ) {
 			Logger.info("Nenhum e-mail informado na newslatter");
 			return;				
 		}		
-				
+		
 		List<Link> links = factoryListLinks();
 		if (links.isEmpty()) {
 			Logger.info("Nenhum links disponível para envio");			
 			return;
-		}			
+		}
 		
-		email.setSubject("Newlatter Owl Links - Resumo de novos links");
-		
-		email.setHtmlMsg(getTemplate(links));
-				
-		email.setCc(emails);
-					
+		email.setSubject("Newlatter Owl Links - Resumo de novos links");		
+		email.setHtmlMsg(getTemplate(links));				
+		email.setCc(emails);					
+		//email.addTo("johni.douglas.marangon@gmail.com");
 		email.send();		
-		
+
 		MongoDB.notifySendNews(links);		
 		
 	}

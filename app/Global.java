@@ -26,6 +26,13 @@ import utils.Utils;
 import play.mvc.Results;
 import play.mvc.Http.RequestHeader;
 
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.HtmlEmail;
+import org.apache.commons.mail.SimpleEmail;
+
+
+
 public class Global extends GlobalSettings {
 	
 	
@@ -41,6 +48,7 @@ public class Global extends GlobalSettings {
 	
 	@Override
 	public void onStart(Application app) {
+
 		
 		Logger.info("Owl Links iniciando...");
 		
