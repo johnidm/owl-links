@@ -1,5 +1,7 @@
 package utils;
 
+
+
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -20,17 +22,19 @@ import org.apache.commons.mail.HtmlEmail;
 
 import play.Logger;
 import play.Play;
+
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
+// 404 
 
 
 public class MailNotifycation {
 	
-	private final static String EMAIL = "johni.douglas.marangon@gmail.com";
+	private final static String EMAIL = " owl.links.newslatter@gmail.com";
 	
-	private final static String PASSWORD = "";
+	private final static String PASSWORD = "c4#bJk8Rs";
 	
 	private static HtmlEmail factoryHTMLEmail() throws EmailException {
 		
@@ -40,11 +44,11 @@ public class MailNotifycation {
 		email.setSmtpPort(465);				
 		email.setAuthenticator(new DefaultAuthenticator(EMAIL, PASSWORD));
 		email.setDebug(false);
-		email.setSSLOnConnect(true);		
+		email.setSSLOnConnect(true);
+		
 		email.setFrom(EMAIL);
 		
-		return email;		
-		
+		return email;				
 	}
 	
 	private static InternetAddress factoryInternetAddress(String name, String email) {
@@ -81,29 +85,28 @@ public class MailNotifycation {
 		if ( emails.isEmpty() ) {
 			Logger.info("Nenhum e-mail informado na newslatter");
 			return;				
-		}
-		
-		
-		
-		List<Link> links = factoryListLinks(); 
+		}		
+				
+		List<Link> links = factoryListLinks();
 		if (links.isEmpty()) {
 			Logger.info("Nenhum links disponível para envio");			
 			return;
-		}
-		
-		
+		}			
 		
 		email.setSubject("Newlatter Owl Links - Resumo de novos links");
 		
 		email.setHtmlMsg(getTemplate(links));
-		
-		email.setCc(emails);	
-						
+				
+		email.setCc(emails);
+					
 		email.send();		
 		
+		MongoDB.notifySendNews(links);		
+		
 	}
-	
-	
+
+
+
 	private static String getTemplate(List<Link> links) throws IOException, TemplateException {
 		
 		Configuration cfg = new Configuration(Configuration.VERSION_2_3_22);		
@@ -111,7 +114,7 @@ public class MailNotifycation {
 		cfg.setDirectoryForTemplateLoading( new File(Play.application().configuration().getString( "templates.dir" ) ) );		
 				
 		Map<String, Object> data = new HashMap<String, Object>();		
-				                
+		
         data.put("links", links);
 			
 		Template template = cfg.getTemplate( "newslatter.html" );		
@@ -122,11 +125,8 @@ public class MailNotifycation {
 	}
 	
 	private static List<Link> factoryListLinks() {
-		
-		List<Link> links = new ArrayList<Link>();
-				
-		return links;
-		
+							
+		return MongoDB.subscribe();		
 	}
 	
 }

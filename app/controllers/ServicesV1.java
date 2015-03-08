@@ -59,7 +59,7 @@ public class ServicesV1 extends Controller {
 			ObjectMapper mapper = new ObjectMapper();			
 			
 		    
-		    String[] ignorableFieldNames = { "_id" }; 		         
+		    String[] ignorableFieldNames = { "_id", "notifynews" }; 		         
 		    FilterProvider filters = new SimpleFilterProvider()
 		          .addFilter("linkFilter",SimpleBeanPropertyFilter.serializeAllExcept(ignorableFieldNames));
 		            

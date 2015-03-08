@@ -85,13 +85,14 @@ p {
       			<hr>
       		</td>	
       	</tr>
+      	     	
       	
       	<#list links as link>
         <tr>
         	<td>
-            	<h3>${link.name}</h3>
-                <h5></h5>
-                <p>${link.developer}</p>
+            	<h3>${link.title}</h3>
+                <h5><a href="${link.url}" target="_blank">${link.url}</a></h5>
+                <p>${link.description}</p>
             </td>              
         </tr>
         </#list>
