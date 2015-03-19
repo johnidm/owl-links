@@ -4,6 +4,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.UnknownHostException;
 import java.util.concurrent.TimeUnit;
 
+import javax.mail.internet.AddressException;
+
 import org.apache.commons.mail.EmailException;
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
@@ -66,9 +68,10 @@ public class Global extends GlobalSettings {
 		                
 		        			try {
 								MailNotifycation.send();
-							} catch (EmailException | IOException
+							} catch (EmailException | IOException | AddressException 
 									| TemplateException e) {
 								Logger.error("Falha ao enviar os e-mails " + e.getMessage());								
+							
 							}	        		
 		        			
 		        			Logger.debug("[Fim] Envio de e-mails " + Utils.dateNow());

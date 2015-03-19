@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
 import models.Link;
@@ -44,10 +45,11 @@ public class MailNotifycation {
 	}
 	
 		
-	private static List<InternetAddress> factoryListEmails() throws UnsupportedEncodingException {
+	private static List<InternetAddress> factoryListEmails() throws UnsupportedEncodingException, AddressException {
 			
 		List<InternetAddress> list = new ArrayList<InternetAddress>();
 				
+		
 		List<Newslatter> news = Newslatter.listSubscribe();
 				
 		news.forEach(n -> {
@@ -59,13 +61,13 @@ public class MailNotifycation {
 				e.printStackTrace();
 			}
 		 	
-		});					
-											
+		});
+				
 		return list; 		
 	}
 	
 	
-	public static void send() throws EmailException, IOException, TemplateException {
+	public static void send() throws EmailException, IOException, TemplateException, AddressException {
 		
 		HtmlEmail email = factoryHTMLEmail();
 					
@@ -82,9 +84,10 @@ public class MailNotifycation {
 		}
 		
 		email.setSubject("Newlatter Owl Links - Resumo de novos links");		
-		email.setHtmlMsg(getTemplate(links));				
-		email.setCc(emails);					
-		//email.addTo("johni.douglas.marangon@gmail.com");
+		email.setHtmlMsg(getTemplate(links));		
+		
+		email.setBcc(emails);				
+		
 		email.send();		
 
 		MongoDB.notifySendNews(links);		
