@@ -15,6 +15,11 @@ public class Links extends Controller  {
 		
 		return MongoDB.links();		
 	}
+
+	public static Long countLinks() {
+		
+		return MongoDB.countLinks();
+	}
 	
 	
 }

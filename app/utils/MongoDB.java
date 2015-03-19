@@ -2,16 +2,13 @@ package utils;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Collections;
 import java.util.List;
 
 import models.Link;
 
 import org.bson.types.ObjectId;
-
-import org.apache.commons.collections.IteratorUtils;
 import org.jongo.Jongo;
-
 import org.jongo.MongoCollection;
 import org.jongo.MongoCursor;
 
@@ -44,7 +41,7 @@ public class MongoDB {
 		
 		MongoCollection links = MongoDB.factoryCollectionLinks();
 		
-		return links.find().as(Link.class);	
+		return links.find().sort( "{ _id : -1 }" ).limit(16).as(Link.class);	
 		 
 	}
 	
@@ -53,7 +50,9 @@ public class MongoDB {
 		//return  IteratorUtils.toList(allLinks());
 		List<Link> list = new ArrayList<Link>();
 		
-		allLinks().forEachRemaining(list::add);		
+		allLinks().forEachRemaining(list::add);	
+			
+		//Collections.reverse(list);
 				
 		return list;
 		 
@@ -66,7 +65,8 @@ public class MongoDB {
 		
 		List<Link> list = new ArrayList<Link>();
 			
-		subscribe.forEachRemaining(list::add);		
+		subscribe.forEachRemaining(list::add);	
+		
 			
 		return list;
 		
@@ -83,6 +83,13 @@ public class MongoDB {
 		
 		
 			
+	}
+
+	public static Long countLinks() {
+		
+		MongoCollection links = MongoDB.factoryCollectionLinks();
+		
+		return links.count();	
 	}
 	
 }

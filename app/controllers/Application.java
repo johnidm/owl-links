@@ -20,7 +20,8 @@ public class Application extends Controller {
         return ok(index.render(
         		controllers.Contacts.formContact, 
         		controllers.Newslatters.formNewslatter,
-        		controllers.Links.links() ));                
+        		controllers.Links.links(),
+        		controllers.Links.countLinks() ));                
     }
        
     

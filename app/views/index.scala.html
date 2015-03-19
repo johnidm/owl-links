@@ -1,4 +1,4 @@
-@(formContact : Form[models.Contact], formNewslatter : Form[models.Newslatter], links : List[Link])
+@(formContact : Form[models.Contact], formNewslatter : Form[models.Newslatter], links : List[Link], totalLinks: Long)
 
 @import helper._
 
@@ -16,7 +16,7 @@
 
 	<section id="showlinks" class="red lighten-1">
 		<div class="container section-box"> 
-			@partials.showlinks(links)    
+			@partials.showlinks(links, totalLinks)    
 	    </div>
 	</section>
    

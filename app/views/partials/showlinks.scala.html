@@ -1,10 +1,10 @@
-@(links: List[Link])
+@(links: List[Link], totalLinks: Long)
 
 <div class="container-title">
 	<h3 class="white-text">Últimos links cadastrados</h3>
 			
 	<h5 class="white-text">	
-		@(if (links.size != 0) { "veja os últimos "  + links.size  + " links cadastrados" } else { "que pena, nenhum link foi cadastrado" })
+		@(if (links.size != 0) { "veja os últimos "  + links.size  + " links cadastrados de um total de " +  totalLinks + " links" } else { "que pena, nenhum link foi cadastrado" })
 	</h5>
 	
 </div>
@@ -14,8 +14,7 @@
 @links.grouped(4).map { group =>
   	<div class="row">
 	@group.map { item =>
-		
-		
+				
 		
 		<div class="col s3">
         	<div class="card page-wrapper page-show-@{item._id}">
