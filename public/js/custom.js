@@ -1,9 +1,10 @@
 $(document).ready(function(){  
-	
+
+  $(".button-collapse").sideNav(); 	
   $('.materialboxed').materialbox();
   $(".dropdown-button").dropdown();
-  $(".button-collapse").sideNav();
-  
+   
+
   $('.modal-trigger').leanModal();
 	
   
