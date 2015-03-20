@@ -20,6 +20,8 @@ import com.mongodb.MongoClientURI;
 
 public class MongoDB {
 
+	private static final Integer LIMIT_NUMBER_LINKS = 3;
+
 	private static MongoCollection factoryCollectionLinks() {
 		
 		try {
@@ -61,11 +63,14 @@ public class MongoDB {
 	public static List<Link> subscribe() {
 				
 		MongoCursor<Link> subscribe = MongoDB.factoryCollectionLinks().
-				find("{ $or: [ { notifynews: { $exists: false } }, { notifynews: { $eq: 'N' } } ] }").limit(3).as(Link.class);
+				find("{ $or: [ { notifynews: { $exists: false } }, { notifynews: { $ne: 'S' } } ] }").limit(LIMIT_NUMBER_LINKS).as(Link.class);
 		
 		List<Link> list = new ArrayList<Link>();
-			
-		subscribe.forEachRemaining(list::add);	
+
+		Logger.debug("Total de links para notificação " + subscribe.count());
+
+		if (subscribe.count() == LIMIT_NUMBER_LINKS)			
+			subscribe.forEachRemaining(list::add);	
 		
 			
 		return list;

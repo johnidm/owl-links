@@ -29,7 +29,7 @@ import freemarker.template.TemplateException;
 public class MailNotifycation {
 	
 	private final static String EMAIL = " owl.links.newslatter@gmail.com";	
-	private final static String PASSWORD = "";
+	private final static String PASSWORD = "c4#bJk8Rs";
 
 	private static HtmlEmail factoryHTMLEmail() throws EmailException {
 		
@@ -58,7 +58,7 @@ public class MailNotifycation {
 				email = new InternetAddress(n.email, n.name);
 				list.add(email);
 			} catch (Exception e) {			
-				e.printStackTrace();
+7				e.printStackTrace();
 			}
 		 	
 		});
