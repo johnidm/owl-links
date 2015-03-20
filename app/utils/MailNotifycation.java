@@ -58,7 +58,7 @@ public class MailNotifycation {
 				email = new InternetAddress(n.email, n.name);
 				list.add(email);
 			} catch (Exception e) {			
-7				e.printStackTrace();
+				e.printStackTrace();
 			}
 		 	
 		});
