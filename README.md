@@ -13,7 +13,7 @@ Estão realcionados a esse projeto uma API - [API Owl Links](https://github.com/
 
 ### Você quer contribuir com o projeto
 
-Instale o Typesafe Activator `http://www.johnidouglas.com.br/install-typesafe-activator-play-framework/`
+[Instale o Typesafe Activator](http://www.johnidouglas.com.br/install-typesafe-activator-play-framework/)
 
 ```
 git clone https://github.com/johnidm/owl-links
@@ -23,3 +23,9 @@ git clone https://github.com/johnidm/owl-links
 activator ~run
 ```
 
+Pronto agora é só codar.
+
+### Recomendaçao de livros
+
+* https://leanpub.com/playframeworknapratica
+* http://www.casadocodigo.com.br/products/livro-play-framework-java
