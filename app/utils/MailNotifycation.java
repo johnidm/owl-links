@@ -27,9 +27,10 @@ import freemarker.template.TemplateException;
 
 
 public class MailNotifycation {
-	
-	private final static String EMAIL = " owl.links.newslatter@gmail.com";	
-	private final static String PASSWORD = "";
+	//owl.links.newslatter
+	//c4#bJk8Rs
+	private final static String EMAIL = "busamar@gmail.com";	
+	private final static String PASSWORD = "aa03070812";
 
 	private static HtmlEmail factoryHTMLEmail() throws EmailException {
 		
@@ -94,7 +95,34 @@ public class MailNotifycation {
 		
 	}
 
-
+	
+	private static void sendAlert(String subject, String htmlMsg) throws EmailException, IOException, TemplateException, AddressException {
+		HtmlEmail email = factoryHTMLEmail();
+		
+		email.setSubject(subject);		
+		email.setHtmlMsg(htmlMsg);		
+		
+		email.addTo(EMAIL, "Alerta", "UTF-8");				
+		
+		email.send();			
+	}
+	
+	public static void sendAlertLink(String link) throws EmailException, IOException, TemplateException, AddressException {
+		sendAlert("Alerta Owl Links - Sugestão de novo link", "O link " + link + " foi sugerido através do Owl Links.");
+	}	
+	
+	public static void sendAlertNewslatter(String nome, String email) throws EmailException, IOException, TemplateException, AddressException {
+		sendAlert("Alerta Owl Links - Nova assinatura de newslatter", nome + " (" + email + ")" + " assinou a newslatter do Owl Links.");
+	}	
+	
+	public static void sendAlertContato(String nome, String email, String site, String mensagem) throws EmailException, IOException, TemplateException, AddressException {
+		String html = "Novo contato adicionado: "
+					+ " <b> Nome: </b> " + nome
+					+ " <b> Email: </b> " + email
+					+ " <b> Site: </b> " + site
+					+ " <b> Mensagem: </b> " + mensagem;
+		sendAlert("Alerta Owl Links - Novo cadastro de contato", html);
+	}		
 
 	private static String getTemplate(List<Link> links) throws IOException, TemplateException {
 		
