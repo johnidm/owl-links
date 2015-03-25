@@ -19,6 +19,14 @@ Estão realcionados a esse projeto uma API - [API Owl Links](https://github.com/
 git clone https://github.com/johnidm/owl-links
 ```
 
+Caso esteja usando o Eclipse, execute:
+
+```
+activator eclipse
+```
+
+Depois execute:
+
 ```
 activator ~run
 ```
