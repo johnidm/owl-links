@@ -1,10 +1,18 @@
 package controllers;
 
 
+import java.io.IOException;
+
+import javax.mail.internet.AddressException;
+
+import org.apache.commons.mail.EmailException;
+
+import freemarker.template.TemplateException;
 import play.Logger;
 import play.data.DynamicForm;
 import play.data.DynamicForm.Dynamic;
 import models.Newslatter;
+import utils.MailNotifycation;
 import utils.Utils;
 import views.html.unsubscribe;
 import play.data.Form;
@@ -45,7 +53,18 @@ public class Newslatters extends Controller {
 		
 		newslatter.subscribe = "N";
 		newslatter.save();			
-	   	    
+		
+		Logger.debug("[Início] Envio de e-mails " + Utils.dateNow());       
+		try {
+			MailNotifycation.sendAlertNewslatterUnsub(newslatter.name, newslatter.email);
+			Logger.debug("E-mail de notificação de cancelamento de newslatter enviado");
+		} catch (EmailException | IOException | AddressException 
+				| TemplateException e) {
+			Logger.error("Falha ao enviar os e-mails " + e.getMessage());								
+		
+		}	        			
+		Logger.debug("[Fim] Envio de e-mails " + Utils.dateNow());   
+		
 	    flash("success","Sua assinatura foi cancelada.");        
         return redirect(routes.Application.index());
 	}
@@ -72,6 +91,18 @@ public class Newslatters extends Controller {
         }  
                             
         newslatter.save();        
+        
+		Logger.debug("[Início] Envio de e-mails " + Utils.dateNow());       
+		try {
+			MailNotifycation.sendAlertNewslatter(newslatter.name, newslatter.email);
+			Logger.debug("E-mail de notificação de assinatura de newslatter enviado");
+		} catch (EmailException | IOException | AddressException 
+				| TemplateException e) {
+			Logger.error("Falha ao enviar os e-mails " + e.getMessage());								
+		
+		}	        			
+		Logger.debug("[Fim] Envio de e-mails " + Utils.dateNow());   		
+	   	            
         
         flash("success","Obrigado por assinar a newslatter. Você ira receber os novos links registrados.");
         

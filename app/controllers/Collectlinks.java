@@ -40,16 +40,15 @@ public class Collectlinks extends Controller {
         
         collectlink.save();    
         
-		Logger.debug("[Início] Envio de e-mails " + Utils.dateNow());
-        
+		Logger.debug("[Início] Envio de e-mails " + Utils.dateNow());       
 		try {
 			MailNotifycation.sendAlertLink(collectlink.link);
+			Logger.debug("E-mail de notificação de sugestão de link enviado");
 		} catch (EmailException | IOException | AddressException 
 				| TemplateException e) {
 			Logger.error("Falha ao enviar os e-mails " + e.getMessage());								
 		
-		}	        		
-		
+		}	        			
 		Logger.debug("[Fim] Envio de e-mails " + Utils.dateNow());        
                 
         flash("success","Sua sugestão foi enviada. Em breve iremos compartilhar o seu link.");

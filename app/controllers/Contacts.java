@@ -1,7 +1,16 @@
 package controllers;
 
+import java.io.IOException;
+
+import javax.mail.internet.AddressException;
+
+import org.apache.commons.mail.EmailException;
+
+import freemarker.template.TemplateException;
 import models.Contact;
+import utils.MailNotifycation;
 import utils.Utils;
+import play.Logger;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -42,6 +51,18 @@ public class Contacts extends Controller {
         }                       
         
         contact.save();        
+        
+		Logger.debug("[Início] Envio de e-mails " + Utils.dateNow());       
+		try {
+			MailNotifycation.sendAlertContact(contact.firstname + " " + contact.lastname,
+					contact.email, contact.site, contact.message);
+			Logger.debug("E-mail de notificação de contato enviado");
+		} catch (EmailException | IOException | AddressException 
+				| TemplateException e) {
+			Logger.error("Falha ao enviar os e-mails " + e.getMessage());								
+		
+		}	        			
+		Logger.debug("[Fim] Envio de e-mails " + Utils.dateNow());   
         
         flash("success","Seu contato foi registrado. Obrigado!");
         
