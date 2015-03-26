@@ -32,7 +32,7 @@ public class MailNotifycation {
 
 	private final static String EMAIL = "owl.links.notifications@gmail.com";	
 	
-	private final static String EMAIL_NOTIFICACAO = "owl.links.notifications@gmail.com";
+	private final static String EMAIL_NOTIFICACAO = "johni.douglas.marangon@gmail.com";
 	
 	private final static String PASSWORD = "poR4@7pu";
 
@@ -59,7 +59,7 @@ public class MailNotifycation {
 	*/
 		
 		HtmlEmail email = new HtmlEmail();
-		
+
 		email.setSSLOnConnect(true);			
 		email.setDebug(true);  
 		email.setHostName("smtp.gmail.com");
