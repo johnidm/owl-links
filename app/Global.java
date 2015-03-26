@@ -56,7 +56,7 @@ public class Global extends GlobalSettings {
 		
 				
 		Akka.system().scheduler().schedule(
-		        Duration.create(5, TimeUnit.MILLISECONDS),         // initial delay 
+		        Duration.create(5, TimeUnit.MILLISECONDS),  // initial delay 
 		        Duration.create(24, TimeUnit.HOURS),        // run job 
 
 		        new Runnable() 
@@ -68,6 +68,8 @@ public class Global extends GlobalSettings {
 		                
 		        			try {
 								MailNotifycation.send();
+								
+								
 							} catch (EmailException | IOException | AddressException 
 									| TemplateException e) {
 								Logger.error("Falha ao enviar os e-mails " + e.getMessage());								

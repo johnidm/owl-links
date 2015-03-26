@@ -2,8 +2,8 @@ package utils;
 
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import models.Link;
 
@@ -69,11 +69,10 @@ public class MongoDB {
 
 		Logger.debug("Total de links para notificação " + subscribe.count());
 
-		if (subscribe.count() == LIMIT_NUMBER_LINKS)			
+		if (subscribe.count() >= LIMIT_NUMBER_LINKS)			
 			subscribe.forEachRemaining(list::add);	
-		
-			
-		return list;
+					
+		return list.stream().limit(LIMIT_NUMBER_LINKS).collect(Collectors.toList());
 		
 	}
 	
