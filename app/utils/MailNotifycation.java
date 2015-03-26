@@ -34,29 +34,9 @@ public class MailNotifycation {
 	
 	private final static String EMAIL_NOTIFICACAO = "johni.douglas.marangon@gmail.com";
 	
-	private final static String PASSWORD = "poR4@7pu";
+	private final static String PASSWORD = "";
 
 	private static HtmlEmail factoryHTMLEmail() throws EmailException {
-
-	/*
-		SimpleEmail email1 = new SimpleEmail();    
-        try {  
-        email1.setDebug(true);  
-        email1.setHostName("smtp.gmail.com");  
-        email1.setAuthentication(EMAIL,PASSWORD);  
-        email1.setSSL(true);  
-        email1.addTo(EMAIL_NOTIFICACAO); //pode ser qualquer um email  
-        email1.setFrom(EMAIL); //aqui necessita ser o email que voce fara a autenticacao  
-        email1.setSubject("Teste");  
-        email1.setMsg("Mensagem Testando");  
-        email1.send();  
-  
-        } catch (EmailException e) {  
-  
-        System.out.println(e.getMessage());  
-  
-        }
-	*/
 		
 		HtmlEmail email = new HtmlEmail();
 
