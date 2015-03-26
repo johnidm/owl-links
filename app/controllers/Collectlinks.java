@@ -34,7 +34,7 @@ public class Collectlinks extends Controller {
         }
         
         if (!Utils.validUrl( collectlink.link )) {        	
-        	flash("error", String.format("A URL \"%s\" que você informou	 é inválida.", collectlink.link));
+        	flash("error", String.format("A URL \"%s\" que você informou é inválida.", collectlink.link));
         	return redirect(routes.Application.index());        	
         }
         
