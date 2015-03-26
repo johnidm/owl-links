@@ -6,6 +6,12 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import org.apache.commons.lang3.StringUtils;
+import play.Logger;
+import org.apache.commons.mail.EmailException;
+import freemarker.template.TemplateException;
+import javax.mail.internet.AddressException;
+import java.io.IOException;
+import utils.MailNotifycation;
 
 public class Collectlinks extends Controller {
 	
@@ -32,7 +38,18 @@ public class Collectlinks extends Controller {
         	return redirect(routes.Application.index());        	
         }
         
-        collectlink.save();        
+        collectlink.save();    
+        
+		Logger.debug("[Início] Envio de e-mails " + Utils.dateNow());       
+		try {
+			MailNotifycation.sendAlertLink(collectlink.link);
+			Logger.debug("E-mail de notificação de sugestão de link enviado");
+		} catch (EmailException | IOException | AddressException 
+				| TemplateException e) {
+			Logger.error("Falha ao enviar os e-mails " + e.getMessage());								
+		
+		}	        			
+		Logger.debug("[Fim] Envio de e-mails " + Utils.dateNow());        
                 
         flash("success","Sua sugestão foi enviada. Em breve iremos compartilhar o seu link.");
         
