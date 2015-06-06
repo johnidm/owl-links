@@ -1,4 +1,4 @@
-@(formContact : Form[models.Contact], formNewslatter : Form[models.Newslatter], links : List[Link], totalLinks: Long)
+@(formContact : Form[models.Contact], formNewsletter : Form[models.Newsletter], links : List[Link], totalLinks: Long)
 
 @import helper._
 
@@ -8,9 +8,9 @@
 
 	@header()
 	
-	<section id="newslatter" class="teal accent-3">
+	<section id="newsletter" class="teal accent-3">
      	<div class="container section-box"> 
-    		@partials.newslatter(formNewslatter)  		    
+    		@partials.newsletter(formNewsletter)  		    
      	</div>
   	</section>  
 

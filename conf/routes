@@ -9,10 +9,10 @@ GET     /                           controllers.Application.index()
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 POST	/contatc/submit					controllers.Contacts.submit()
-POST	/newslatter/subcribe			controllers.Newslatters.subscribe()
+POST	/newsletter/subcribe			controllers.Newsletters.subscribe()
 
-GET     /newslatter/unsubscribe			controllers.Newslatters.unsubscribe()
-POST    /newslatter/confirmaUnsubscribe controllers.Newslatters.confirmaUnsubscribe()
+GET     /newsletter/unsubscribe			controllers.Newsletters.unsubscribe()
+POST    /newsletter/confirmaUnsubscribe controllers.Newsletters.confirmaUnsubscribe()
 
 POST	/collectlink/send				controllers.Collectlinks.send()
 

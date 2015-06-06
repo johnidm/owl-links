@@ -1,14 +1,14 @@
-@(formNewslatter : Form[models.Newslatter])
+@(formNewsletter : Form[models.Newsletter])
 
 <div class="container-title">
-	<h3>Newslatter</h3>
+	<h3>Newsletter</h3>
 	<h5>recebe os novos links cadastrados</h5>
 	
 </div>
 
 <div class="card-panel">
 
-@helper.form(action = routes.Newslatters.subscribe(), 'novalidate -> "novalidate") {
+@helper.form(action = routes.Newsletters.subscribe(), 'novalidate -> "novalidate") {
 	
 <div class="row">
 	<div class="col s12">	

@@ -18,6 +18,8 @@ activator
 activator.bat
 activator-launch-1.2.12.jar
 
-./cache
+/.cache
+
+./cache/
 
 /bin/

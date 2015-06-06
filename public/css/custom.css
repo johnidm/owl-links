@@ -48,17 +48,17 @@ footer.page-footer {
   box-shadow: 0 1px 0 0 #01579b;
 }
 
-#newslatter .input-field .prefix.active {
+#newsletter .input-field .prefix.active {
 	color: #1b5e20;  /* green darken-4 */
 }
 
-#newslatter .input-field input[type=text]:focus + label, 
-#newslatter .input-field input[type=email]:focus + label {
+#newsletter .input-field input[type=text]:focus + label, 
+#newsletter .input-field input[type=email]:focus + label {
     color: #1b5e20;  /* green darken-4 */
 }
 
-#newslatter input[type=text]:focus, 
-#newslatter input[type=email]:focus {
+#newsletter input[type=text]:focus, 
+#newsletter input[type=email]:focus {
   /* light-blue darken-4 */
   border-bottom: 1px solid #1b5e20;
   -webkit-box-shadow: 0 1px 0 0 #1b5e20;
@@ -145,7 +145,7 @@ nav {
 	font-family: 'Roboto';	
 }
 
-#newslatter input[type=text], #newslatter input[type=email], #newslatter label {
+#newsletter input[type=text], #newsletter input[type=email], #newsletter label {
 	font-size: 20px;	
 }
 

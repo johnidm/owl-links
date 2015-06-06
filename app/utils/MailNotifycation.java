@@ -13,7 +13,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
 import models.Link;
-import models.Newslatter;
+import models.Newsletter;
 
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
@@ -58,7 +58,7 @@ public class MailNotifycation {
 		List<InternetAddress> list = new ArrayList<InternetAddress>();
 				
 		
-		List<Newslatter> news = Newslatter.listSubscribe();
+		List<Newsletter> news = Newsletter.listSubscribe();
 				
 		news.forEach(n -> {
 			InternetAddress email;
@@ -84,7 +84,7 @@ public class MailNotifycation {
 					
 		List<InternetAddress> emails = factoryListEmails();		
 		if ( emails.isEmpty() ) {
-			Logger.info("Nenhum e-mail informado na newslatter");
+			Logger.info("Nenhum e-mail informado na newsletter");
 			return;				
 		}		
 		
@@ -126,12 +126,12 @@ public class MailNotifycation {
 		sendAlert("Alerta Owl Links - Sugestão de novo link", "O link " + link + " foi sugerido através do Owl Links.");
 	}	
 	
-	public static void sendAlertNewslatter(String nome, String email) throws EmailException, IOException, TemplateException, AddressException {
-		sendAlert("Alerta Owl Links - Nova assinatura de newslatter", nome + " (" + email + ")" + " assinou a newslatter do Owl Links.");
+	public static void sendAlertNewsletter(String nome, String email) throws EmailException, IOException, TemplateException, AddressException {
+		sendAlert("Alerta Owl Links - Nova assinatura de newsletter", nome + " (" + email + ")" + " assinou a newsletter do Owl Links.");
 	}	
 	
-	public static void sendAlertNewslatterUnsub(String nome, String email) throws EmailException, IOException, TemplateException, AddressException {
-		sendAlert("Alerta Owl Links - Assinatura de newslatter cancelada", nome + " (" + email + ")" + " cancelou a assinatura da newslatter do Owl Links.");
+	public static void sendAlertNewsletterUnsub(String nome, String email) throws EmailException, IOException, TemplateException, AddressException {
+		sendAlert("Alerta Owl Links - Assinatura de newsletter cancelada", nome + " (" + email + ")" + " cancelou a assinatura da newsletter do Owl Links.");
 	}		
 	
 	public static void sendAlertContact(String nome, String email, String site, String mensagem) throws EmailException, IOException, TemplateException, AddressException {
@@ -153,7 +153,7 @@ public class MailNotifycation {
 		
         data.put("links", links);
 			
-		Template template = cfg.getTemplate( "newslatter.html" );		
+		Template template = cfg.getTemplate( "newsletter.html" );		
 		StringWriter out = new StringWriter();		
 		template.process(data, out);		
 		return (out.getBuffer().toString());

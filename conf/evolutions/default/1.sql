@@ -21,20 +21,20 @@ create table contact (
   constraint pk_contact primary key (id))
 ;
 
-create table newslatter (
+create table newsletter (
   id                        bigint not null,
   name                      varchar(80),
   email                     varchar(100),
   subscribe                 varchar(1),
   signedup                  timestamp,
-  constraint pk_newslatter primary key (id))
+  constraint pk_newsletter primary key (id))
 ;
 
 create sequence collectlink_seq;
 
 create sequence contact_seq;
 
-create sequence newslatter_seq;
+create sequence newsletter_seq;
 
 
 
@@ -45,11 +45,11 @@ drop table if exists collectlink cascade;
 
 drop table if exists contact cascade;
 
-drop table if exists newslatter cascade;
+drop table if exists newsletter cascade;
 
 drop sequence if exists collectlink_seq;
 
 drop sequence if exists contact_seq;
 
-drop sequence if exists newslatter_seq;
+drop sequence if exists newsletter_seq;
 

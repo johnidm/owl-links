@@ -19,7 +19,7 @@ public class Application extends Controller {
     	
         return ok(index.render(
         		controllers.Contacts.formContact, 
-        		controllers.Newslatters.formNewslatter,
+        		controllers.Newsletters.formNewsletter,
         		controllers.Links.links(),
         		controllers.Links.countLinks() ));                
     }

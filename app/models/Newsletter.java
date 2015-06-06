@@ -15,7 +15,7 @@ import play.db.ebean.Model;
 import play.libs.F.Option;
 
 @Entity
-public class Newslatter  extends Model {
+public class Newsletter  extends Model {
 
 	private static final long serialVersionUID = 1L;
 
@@ -35,17 +35,17 @@ public class Newslatter  extends Model {
 	@Formats.DateTime(pattern="yyyy-MM-dd hh:mm:ss")
 	public Date signedup = new Date();
 	
-	public static Finder<Long,Newslatter> find = new Finder<Long, Newslatter>(Long.class, Newslatter.class);
+	public static Finder<Long,Newsletter> find = new Finder<Long, Newsletter>(Long.class, Newsletter.class);
 		
-	public static List<Newslatter> listSubscribe () {
-		return	Ebean.find(Newslatter.class).where().eq("subscribe", "S").findList();		
+	public static List<Newsletter> listSubscribe () {
+		return	Ebean.find(Newsletter.class).where().eq("subscribe", "S").findList();		
 	}
 		
-	public static Newslatter findByEmail(String email) {
+	public static Newsletter findByEmail(String email) {
 		
-		Newslatter newslatter = Ebean.find(Newslatter.class).where().eq("email", email).findUnique();
+		Newsletter newsletter = Ebean.find(Newsletter.class).where().eq("email", email).findUnique();
 		
-		return newslatter;
+		return newsletter;
 	}
 	
 }
