@@ -26,7 +26,9 @@ public class MongoDB {
 		
 		try {
 		
-			DB db = new MongoClient( new MongoClientURI("mongodb://owl:owl@ds051851.mongolab.com:51851/owl-links")).getDB("owl-links");
+			String mongodb_url = System.getenv("OWLLINKS_MONGODB_URL");
+
+			DB db = new MongoClient( new MongoClientURI(mongodb_url)).getDB("owl-links");
 								
 			Jongo jongo = new Jongo(db);
 			return jongo.getCollection("links");

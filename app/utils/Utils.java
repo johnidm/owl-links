@@ -16,6 +16,7 @@ import play.Logger;
 
 public class Utils {
 	
+
 	
 	private static Map<String, ResquestFormat> formats = new HashMap<String, ResquestFormat>()
 			
@@ -27,7 +28,17 @@ public class Utils {
 		        
 		    }};
 			
-	
+	public static Integer parseIntWithDefault(String number, Integer standard) {
+
+		Integer __number__ = standard;
+		try {
+            __number__ = Integer.parseInt(number);
+        } catch (NumberFormatException ex) {
+        	__number__ = standard;
+        }      
+        return __number__;
+
+	}
 	
 	public static boolean validUrl(String url) {
 		if (Utils.isEmpty(url))

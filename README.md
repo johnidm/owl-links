@@ -15,6 +15,31 @@ Estão realcionados a esse projeto uma API - [API Owl Links](https://github.com/
 
 [Instale o Typesafe Activator](http://www.johnidouglas.com.br/install-typesafe-activator-play-framework/)
 
+Configure as variáveis de ambiente
+
+URL de acesso a base de dados postgre
+```
+OWLLINKS_DATABASE_URL
+```
+
+URL de acesso ao MongoDB
+```
+OWLLINKS_MONGODB_URL
+```
+
+Dados de SMTP para envio de emails
+```
+OWLLINKS_SMTP_HOSTNAME
+OWLLINKS_SMTP_PORT
+OWLLINKS_SMTP_EMAIL
+OWLLINKS_SMTP_PASSWORD
+```
+
+E-mail para notificações
+```
+OWLLINKS_NOTIFYCATION_EMAIL 
+```
+
 ```
 git clone https://github.com/johnidm/owl-links
 ```

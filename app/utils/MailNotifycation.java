@@ -25,16 +25,18 @@ import play.Play;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import utils.Utils;
 
 
 public class MailNotifycation {
 
+	private final static String EMAIL = System.getenv("OWLLINKS_SMTP_EMAIL");
+	private final static String PASSWORD = System.getenv("OWLLINKS_SMTP_PASSWORD");
+	
+	private final static String HOSTNAME = System.getenv("OWLLINKS_SMTP_HOSTNAME");
+	private final static Integer PORT = Utils.parseIntWithDefault(System.getenv("OWLLINKS_SMTP_PORT"), 9000);
 
-	private final static String EMAIL = "owl.links.notifications@gmail.com";	
-	
-	private final static String EMAIL_NOTIFICACAO = "johni.douglas.marangon@gmail.com";
-	
-	private final static String PASSWORD = "";
+	private final static String EMAIL_NOTIFICACAO = System.getenv("NOTIFYCATION_EMAIL");
 
 	private static HtmlEmail factoryHTMLEmail() throws EmailException {
 		
@@ -42,10 +44,9 @@ public class MailNotifycation {
 
 		email.setSSLOnConnect(true);			
 		email.setDebug(true);  
-		email.setHostName("smtp.gmail.com");
-		email.setSmtpPort(465);				
+		email.setHostName(HOSTNAME);
+		email.setSmtpPort(PORT);			
 		email.setAuthenticator(new DefaultAuthenticator(EMAIL, PASSWORD));				
-		
 
 		email.setFrom(EMAIL);
 		
@@ -97,11 +98,8 @@ public class MailNotifycation {
 		email.setSubject("Newlatter Owl Links - Resumo de novos links");		
 		email.setHtmlMsg(getTemplate(links));		
 
-		
-
 		email.setBcc(emails);	
 
-		
 		email.send();		
 
 		MongoDB.notifySendNews(links);	
