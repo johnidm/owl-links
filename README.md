@@ -1,5 +1,5 @@
 #Owl links App
-[http://owl-links.herokuapp.com/](http://owl-links.herokuapp.com/)
+[http://owllinks.co/](http://owllinks.co/)
 =================================
 
 Owl link (em tradução livre Coruja links) é um projeto open source para compartilhamento e distribuição de links.

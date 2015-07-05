@@ -14,7 +14,7 @@ libraryDependencies ++= Seq(
   "org.apache.commons" % "commons-email" % "1.3.3",   
   "org.jongo" % "jongo" % "1.1",
   "org.mongodb" % "mongo-java-driver" % "2.13.0",  
-  "org.freemarker" % "freemarker" % "2.3.22",  
+  "org.freemarker" % "freemarker" % "2.3.22",
   javaJdbc,
   javaEbean,
   cache,

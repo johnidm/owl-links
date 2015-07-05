@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title></title>
+<style>
+/* -------------------------------------
+    GLOBAL
+------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  width: 100%!important;
+  height: 100%;
+}
+
+a {
+  color: #348eda;
+}
+
+h1, h2, h3 {
+  font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+  line-height: 1.1;
+  margin-bottom: 15px;
+  color: #000;  
+  line-height: 1.2;
+  font-weight: 200;
+}
+
+hr {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 28px;
+}
+h3 {
+  font-size: 22px;
+}
+
+p {
+  margin-bottom: 10px;
+  font-weight: normal;
+  font-size: 14px;
+}
+
+
+.container {
+  display: block!important;
+  max-width: 600px!important;
+  margin: 0 auto!important; /* makes it centered */
+  clear: both!important;
+}
+
+</style>
+</head>
+
+<body bgcolor="#f6f6f6">
+
+    <table class="">
+        <tr>     
+            <td class="container" bgcolor="#FFFFFF">
+      
+                <div>
+                    <center><img src="http://owllinks.co/assets/images/owl-newsletter.png"></center>
+                </div>
+                <h3><center>Esse é um resumo dos últimos links incluídos no Owl Links</center></h3>
+                <hr>
+            </td>   
+        </tr>
+                
+        
+        <#list links as link>
+        <tr>
+            <td>
+                <h3>${link.title}</h3>
+                <h5><a href="${link.url}" target="_blank">${link.url}</a></h5>
+                <p>${link.description}</p>
+            </td>              
+        </tr>
+        </#list>
+        
+        <tr>
+            <td align="center">
+                <p>Você não quer mais receber esse e-mail? <a href="http://owllinks.co/newsletter/unsubscribe"><unsubscribe>Click aqui</unsubscribe></a>.
+                </p>
+            </td>
+         </tr>
+                    
+    </table>
+
+</body>
+</html>

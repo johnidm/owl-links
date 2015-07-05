@@ -42,7 +42,7 @@ public class ServicesV1 extends Controller {
 			return internalServerError(
 					new ObjectMapper().writeValueAsBytes( 									
 							new JsonRequestError( String.format("API Key inválida", format),
-									"Acesse 'http://owl-links.herokuapp.com/#api' e gere uma nova API Key")
+									"Acesse 'http://owllinks.co/#api' e gere uma nova API Key")
 							)			
 					
 					);
