@@ -1,65 +1,58 @@
-<div id="mailsub" class="notification" align="center">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="min-width: 320px;">
-        <tr>
-            <td align="center" bgcolor="#eff3f8">
-                <table border="0" cellspacing="0" cellpadding="0" class="table_width_100" width="100%" style="max-width: 680px; min-width: 300px;">
-                    <tr>
-                        <td>
-                            <div style="height: 80px; line-height: 80px; font-size: 10px;"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center" bgcolor="#fbfcfd">
-                            <table width="90%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td align="center">
-                                        <!-- padding -->
-                                        <div style="height: 60px; line-height: 60px; font-size: 10px;"></div>
-                                        <div style="line-height: 44px;">
-                                            <font face="Arial, Helvetica, sans-serif" size="5" color="#57697e" style="font-size: 34px;">
-                                                <a target="_blank" href="http://owllinks.co/"  style="font-family: Arial, Helvetica, sans-serif; font-size: 34px; color: #57697e; text-decoration: none;"  onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
-												Owl Links
-												</a>
-                                            </font>
-                                        </div>
-                                        <!-- padding -->
-                                        <div style="height: 40px; line-height: 40px; font-size: 10px;"></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <div style="line-height: 24px;">
-                                            <font face="Arial, Helvetica, sans-serif" size="4" color="#57697e" style="font-size: 15px;">
-                                                <span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
-													Esse é um resumo dos últimos links incluídos no Owl Links
-												</span>
-                                            </font>
-                                        </div>
-                                        <!-- padding -->
-                                        <div style="height: 40px; line-height: 40px; font-size: 10px;"></div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="center" bgcolor="#ffffff">
-                            <table width="94%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td align="center">
-                                      
-					                    <#list links as link>                   
-                                        <div class="mob_100" style="float: left; display: inline-block; width: 33%;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" style="min-width: 320px;">
+    <tr>
+        <td align="center" bgcolor="#eff3f8">
+            <table border="0" cellspacing="0" cellpadding="0" class="table_width_100" width="100%" style="max-width: 680px; min-width: 300px;">
+                
+                <tr>
+                    <td align="center" bgcolor="#fbfcfd">
+                        <table width="90%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td align="center">
+                                    <!-- padding -->
+                                    <div style="height: 60px; line-height: 60px; font-size: 10px;"></div>
+                                    <div style="line-height: 44px;">
+                                        <font face="Arial, Helvetica, sans-serif" size="5" color="#57697e" style="font-size: 34px;">
+                                            <a target="_blank" href="http://owllinks.co/" style="font-family: Arial, Helvetica, sans-serif; font-size: 34px; color: #57697e; text-decoration: none;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
+                                                Owl Links
+                                                </a>
+                                        </font>
+                                    </div>
+                                    <div style="height: 40px; line-height: 40px; font-size: 10px;"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="center">
+                                    <div style="line-height: 24px;">
+                                        <font face="Arial, Helvetica, sans-serif" size="4" color="#57697e" style="font-size: 15px;">
+                                            <span style="font-family: Arial, Helvetica, sans-serif; font-size: 15px; color: #57697e;">
+                                                    Esse é um resumo dos últimos links incluídos no Owl Links
+                                                </span>
+                                        </font>
+                                    </div>
+                                    <!-- padding -->
+                                    <div style="height: 40px; line-height: 40px; font-size: 10px;"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" bgcolor="#ffffff">
+                        <table width="94%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    <#list links as link>
+                                        <div class="mob_100">
                                             <table class="mob_100" width="100%" border="0" cellspacing="0" cellpadding="0" align="left" style="border-collapse: collapse;">
                                                 <tr>
-                                                    <td align="center" style="line-height: 14px; padding: 0 27px;">
+                                                    <td style="line-height: 14px; padding: 0 27px;">
                                                         <!-- padding -->
                                                         <div style="height: 40px; line-height: 40px; font-size: 10px;"></div>
                                                         <div style="line-height: 14px;">
                                                             <font face="Arial, Helvetica, sans-serif" size="3" color="#4db3a4" style="font-size: 14px;">
                                                                 <strong style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #4db3a4;">
-																	<a href="${link.url}" target="_blank" style="color: #4db3a4; text-decoration: none;">${link.title}</a>
-																</strong>
+                                                                    <a href="${link.url}" target="_blank" style="color: #4db3a4; text-decoration: none;">${link.title}</a>
+                                                                </strong>
                                                             </font>
                                                         </div>
                                                         <!-- padding -->
@@ -67,50 +60,42 @@
                                                         <div style="line-height: 21px;">
                                                             <font face="Arial, Helvetica, sans-serif" size="3" color="#98a7b9" style="font-size: 14px;">
                                                                 <span style="font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #98a7b9;">
-																	${link.description} 
-																</span>
+                                                                    ${link.description} 
+                                                                </span>
                                                             </font>
                                                         </div>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </div>
-                                        </#list>
-                                        
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="iage_footer" align="center" bgcolor="#ffffff">
-                            <!-- padding -->
-                            <div style="height: 80px; line-height: 80px; font-size: 10px;"></div>
-                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td align="center">
-                                        <p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #96a5b5;">
-                                            2015 - Owl Links.
-                                        </p>
-                                        <p style="font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #96a5b5;">
-                                            Você não quer mais receber esse e-mail? <a style="font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #96a5b5; text-decoration: none;" href="http://owllinks.co/newsletter/unsubscribe" target="_blank"> Click aqui</a>.
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                            <!-- padding -->
-                            <div style="height: 30px; line-height: 30px; font-size: 10px;"></div>
-                        </td>
-                    </tr>
-                    <!--footer END-->
-                    <tr>
-                        <td>
-                            <!-- padding -->
-                            <div style="height: 80px; line-height: 80px; font-size: 10px;"></div>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
-</div>
+                                    </#list>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="iage_footer" align="center" bgcolor="#ffffff">
+                        <!-- padding -->
+                        <div style="height: 80px; line-height: 80px; font-size: 10px;"></div>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td align="center">
+                                    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #96a5b5;">
+                                        2015 - Owl Links.
+                                    </p>
+                                    <p style="font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #96a5b5;">
+                                        Você não quer mais receber esse e-mail? <a style="font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #96a5b5; text-decoration: none;" href="http://owllinks.co/newsletter/unsubscribe" target="_blank"> Click aqui</a>.
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- padding -->
+                        <div style="height: 30px; line-height: 30px; font-size: 10px;"></div>
+                    </td>
+                </tr>
+               
+            </table>
+        </td>
+    </tr>
+</table>

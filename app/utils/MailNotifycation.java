@@ -96,7 +96,7 @@ public class MailNotifycation {
 			return;
 		}
 		
-		email.setSubject("Newlatter Owl Links - Resumo de novos links");		
+		email.setSubject("Newletter Owl Links - Resumo de novos links");		
 		email.setHtmlMsg(getTemplate(links));		
 
 		email.setBcc(emails);	

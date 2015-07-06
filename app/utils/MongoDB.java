@@ -65,7 +65,7 @@ public class MongoDB {
 	public static List<Link> subscribe() {
 				
 		MongoCursor<Link> subscribe = MongoDB.factoryCollectionLinks().
-				find("{ $or: [ { notifynews: { $exists: false } }, { notifynews: { $ne: 'S' } } ] }").limit(LIMIT_NUMBER_LINKS).as(Link.class);
+				find("{ $or: [ { notifynews: { $exists: false } }, { notifynews: { $ne: 'N' } } ] }").limit(LIMIT_NUMBER_LINKS).as(Link.class);
 		
 		List<Link> list = new ArrayList<Link>();
 
