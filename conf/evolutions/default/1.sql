@@ -30,11 +30,19 @@ create table newsletter (
   constraint pk_newsletter primary key (id))
 ;
 
+create table notification_newsletter (
+  id                        bigint not null,
+  notification              timestamp,
+  constraint pk_notification_newsletter primary key (id))
+;
+
 create sequence collectlink_seq;
 
 create sequence contact_seq;
 
 create sequence newsletter_seq;
+
+create sequence notification_newsletter_seq;
 
 
 
@@ -47,9 +55,13 @@ drop table if exists contact cascade;
 
 drop table if exists newsletter cascade;
 
+drop table if exists notification_newsletter cascade;
+
 drop sequence if exists collectlink_seq;
 
 drop sequence if exists contact_seq;
 
 drop sequence if exists newsletter_seq;
+
+drop sequence if exists notification_newsletter_seq;
 
