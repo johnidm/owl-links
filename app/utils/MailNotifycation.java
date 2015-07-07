@@ -1,6 +1,7 @@
 
 package utils;
 
+import java.util.Date;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
@@ -15,6 +16,8 @@ import javax.mail.internet.InternetAddress;
 
 import models.Link;
 import models.Newsletter;
+import models.NotificationNewsletter;
+
 
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
@@ -37,7 +40,7 @@ public class MailNotifycation {
 	private final static String HOSTNAME = System.getenv("OWLLINKS_SMTP_HOSTNAME");
 	private final static Integer PORT = Utils.parseIntWithDefault(System.getenv("OWLLINKS_SMTP_PORT"), 9000);
 
-	private final static String EMAIL_NOTIFICACAO = System.getenv("NOTIFYCATION_EMAIL");
+	private final static String EMAIL_NOTIFICACAO = System.getenv("OWLLINKS_NOTIFICATION_EMAIL");
 
 	private static HtmlEmail factoryHTMLEmail() throws EmailException {
 		
@@ -95,8 +98,15 @@ public class MailNotifycation {
 			Logger.info("Nenhum links disponível para envio");			
 			return;
 		}
-		
-		email.setSubject("Newletter Owl Links - Resumo de novos links");		
+
+		// Insert a regitry of notification
+		new NotificationNewsletter(new Date()).save();
+		System.out.println("!");
+
+		// Count notify
+		long newsCount = NotificationNewsletter.find.all().size();
+
+		email.setSubject("Newletter Owl Links - Resumo de novos links - " + String.format("#%d", newsCount));		
 		email.setHtmlMsg(getTemplate(links));		
 
 		email.setBcc(emails);	

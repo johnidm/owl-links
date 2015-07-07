@@ -24,19 +24,17 @@ public class Collectlinks extends Controller {
     	
     	Collectlink collectlink = form.get();
     	
-    	
-    	collectlink.link = StringUtils.join( "http://", collectlink.link);
-    	    	
+    	// collectlink.link = StringUtils.join( "http://", collectlink.link); 	
     	
         if (form.hasErrors()) { 
         	flash("error", "Falha ao gravar o registro.");
         	return redirect(routes.Application.index());        	
         }
         
-        if (!Utils.validUrl( collectlink.link )) {        	
-        	flash("error", String.format("A URL \"%s\" que você informou é inválida.", collectlink.link));
-        	return redirect(routes.Application.index());        	
-        }
+        // if (!Utils.validUrl( collectlink.link )) {        	
+        	// flash("error", String.format("A URL \"%s\" que você informou é inválida.", collectlink.link));
+        	// return redirect(routes.Application.index());        	
+        // }
         
         collectlink.save();    
         
