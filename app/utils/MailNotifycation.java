@@ -40,7 +40,7 @@ public class MailNotifycation {
 	private final static String HOSTNAME = System.getenv("OWLLINKS_SMTP_HOSTNAME");
 	private final static Integer PORT = Utils.parseIntWithDefault(System.getenv("OWLLINKS_SMTP_PORT"), 9000);
 
-	private final static String EMAIL_NOTIFICACAO = System.getenv("NOTIFYCATION_EMAIL");
+	private final static String EMAIL_NOTIFICACAO = System.getenv("OWLLINKS_NOTIFICATION_EMAIL");
 
 	private static HtmlEmail factoryHTMLEmail() throws EmailException {
 		
