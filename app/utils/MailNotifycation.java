@@ -78,7 +78,7 @@ public class MailNotifycation {
 			}
 		 	
 		});
-				
+
 		return list; 		
 	}
 	
@@ -106,11 +106,9 @@ public class MailNotifycation {
 		// Count notify
 		long newsCount = NotificationNewsletter.find.all().size();
 
-		email.setSubject("Newletter Owl Links - Resumo de novos links - " + String.format("#%d", newsCount));		
+		email.setSubject("Owl Links - Resumo de novos links - " + String.format("#%d", newsCount));		
 		email.setHtmlMsg(getTemplate(links));		
-
 		email.setBcc(emails);	
-
 		email.send();		
 
 		MongoDB.notifySendNews(links);	
@@ -152,6 +150,7 @@ public class MailNotifycation {
 		sendAlert("Alerta Owl Links - Novo cadastro de contato", html);
 	}		
 
+
 	private static String getTemplate(List<Link> links) throws IOException, TemplateException {
 		
 		Configuration cfg = new Configuration(Configuration.VERSION_2_3_22);		
@@ -161,6 +160,7 @@ public class MailNotifycation {
 		Map<String, Object> data = new HashMap<String, Object>();		
 		
         data.put("links", links);
+        data.put("name", "Fulano");
 			
 		Template template = cfg.getTemplate( "newsletter.html" );		
 		StringWriter out = new StringWriter();		
