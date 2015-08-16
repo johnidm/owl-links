@@ -18,7 +18,6 @@ import models.Link;
 import models.Newsletter;
 import models.NotificationNewsletter;
 
-
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.HtmlEmail;
@@ -74,18 +73,17 @@ public class MailNotifycation {
 
 				list.add(email);
 			} catch (Exception e) {			
-				e.printStackTrace();
+				Logger.error("Falha ao criar a lista de e-mails " + e.getMessage());
 			}
 		 	
 		});
-				
+
 		return list; 		
 	}
 	
 	
 	public static void send() throws EmailException, IOException, TemplateException, AddressException {
-		
-		HtmlEmail email = factoryHTMLEmail();
+			
 					
 		List<InternetAddress> emails = factoryListEmails();		
 		if ( emails.isEmpty() ) {
@@ -106,17 +104,29 @@ public class MailNotifycation {
 		// Count notify
 		long newsCount = NotificationNewsletter.find.all().size();
 
-		email.setSubject("Newletter Owl Links - Resumo de novos links - " + String.format("#%d", newsCount));		
-		email.setHtmlMsg(getTemplate(links));		
-
-		email.setBcc(emails);	
-
-		email.send();		
-
-		MongoDB.notifySendNews(links);	
+		emails.forEach(email -> {
+			try {
+				sendEmail(links, email, newsCount);
+				
+				MongoDB.notifySendNews(links);	
+				
+				Logger.debug("E-mails enviados " + Utils.dateNow());
+				
+			} catch (Exception e) {								
+				Logger.error("Falha ao criar enviar email " + e.getMessage());
+			}	 	
+		});
+				
+	}
+	
+	private static void sendEmail(List<Link> links, InternetAddress email, long newsCount) throws EmailException, IOException, TemplateException {
 		
-		Logger.debug("E-mails enviados " + Utils.dateNow());
-		
+		HtmlEmail service = factoryHTMLEmail();
+		service.setSubject("Owl Links - Resumo de novos links - " + String.format("#%d", newsCount));		
+		service.setHtmlMsg(processTemplate(links, email.getPersonal()));		
+		service.addTo(email.getAddress(), email.getPersonal());	
+		service.send();
+			
 	}
 
 	
@@ -152,18 +162,29 @@ public class MailNotifycation {
 		sendAlert("Alerta Owl Links - Novo cadastro de contato", html);
 	}		
 
-	private static String getTemplate(List<Link> links) throws IOException, TemplateException {
+	private static Template getTemplateEngine() throws IOException, TemplateException {
 		
 		Configuration cfg = new Configuration(Configuration.VERSION_2_3_22);		
 		cfg.setDefaultEncoding("UTF-8");		
-		cfg.setDirectoryForTemplateLoading( new File(Play.application().configuration().getString( "templates.dir" ) ) );		
-				
-		Map<String, Object> data = new HashMap<String, Object>();		
+		cfg.setDirectoryForTemplateLoading( new File(Play.application().configuration().getString( "templates.dir" ) ) );
+
+		Template template = cfg.getTemplate( "newsletter.html" );
+
+		return template;
+
+	}
+
+	private static String processTemplate(List<Link> links, String name) throws IOException, TemplateException {
 		
+		Template template = getTemplateEngine();			
+				
+		Map<String, Object> data = new HashMap<String, Object>();				
+
         data.put("links", links);
-			
-		Template template = cfg.getTemplate( "newsletter.html" );		
+        data.put("name", name);	
+				
 		StringWriter out = new StringWriter();		
+
 		template.process(data, out);		
 		return (out.getBuffer().toString());
 		
