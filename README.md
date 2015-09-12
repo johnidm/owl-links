@@ -23,17 +23,29 @@ As tecnologias utilizadas no projeto são:
 * [Mongo DB](https://www.mongodb.org/)
 * [Java 8](https://www.oracle.com/java/index.html)
 
-Você pode fazer a instalação dessas ferramentas de acordo com o Sistema Operacional que você esta utilizando.
+Você deve fazer a instalação dessas ferramentas de acordo com o Sistema Operacional utilizado.
 
 ##### Configurando variáveis de ambiente 
 
-Você deve configurar as seguintes variáveis de ambiente antes de executar o projeto.
+Configure as seguintes variáveis de ambiente antes de executar o projeto. Essas configurações são obrigatórias.
 
+* `export OWLLINKS_MONGODB_URL="mongodb://localhost:27017/"`
+* `export OWLLINKS_DATABASE_URL="postgres://postgres:postgres@localhost/owl_db"`
 
+###### Configurações de envio de e-mails
+
+As configurações abaixo são opcionais.
+
+* `export OWLLINKS_NOTIFICATION_EMAIL="johni.douglas.marangon@gmail.com"`
+* `export OWLLINKS_SMTP_HOSTNAME="smtp.gmail.com"`
+* `export OWLLINKS_SMTP_PORT="465"`
+* `export OWLLINKS_SMTP_EMAIL="owl.links.notifications@gmail.com"`
+* `export OWLLINKS_SMTP_PASSWORD="poR4@7pu"`
 
 ##### Executando o projeto 
 
 Na pasta do projeto execute você pode executar os seguintes comandos 
+
 
 
 ### Recomendação de livros
