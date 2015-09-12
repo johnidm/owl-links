@@ -10,7 +10,7 @@ Estão relacionados a esse projeto uma a [API Owl Links](https://github.com/john
 
 ### Como contribuir com o projeto 
 
-As sugestões de melhorias devem ser feitas através de novas [issues]( https://github.com/johnidm/owl-links/issues/new)
+As sugestões de melhorias devem ser feitas através de novas [issues]( https://github.com/johnidm/owl-links/issues/new).
 
 Se você quer contribuir com código a melhor forma e ver a lista de [issues](https://github.com/johnidm/owl-links/issues) abertas.
 
