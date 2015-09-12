@@ -27,14 +27,12 @@ Você deve fazer a instalação dessas ferramentas de acordo com o Sistema Opera
 
 ##### Configurando variáveis de ambiente 
 
-Configure as seguintes variáveis de ambiente antes de executar o projeto. Essas configurações são obrigatórias.
+###### Configurações obrigatórias.
 
 * `export OWLLINKS_MONGODB_URL="mongodb://localhost:27017/"`
 * `export OWLLINKS_DATABASE_URL="postgres://postgres:postgres@localhost/owl_db"`
 
-###### Configurações de envio de e-mails
-
-As configurações abaixo são opcionais.
+###### Configurações opcionais.
 
 * `export OWLLINKS_NOTIFICATION_EMAIL="johni.douglas.marangon@gmail.com"`
 * `export OWLLINKS_SMTP_HOSTNAME="smtp.gmail.com"`
