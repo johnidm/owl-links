@@ -41,6 +41,14 @@ public class MailNotifycation {
 
 	private final static String EMAIL_NOTIFICACAO = System.getenv("OWLLINKS_NOTIFICATION_EMAIL");
 
+
+	private static Boolean existsConfigSMPT() {
+		Boolean anyIsEmpty = Utils.isEmpty(EMAIL) || Utils.isEmpty(PASSWORD) 
+				|| Utils.isEmpty(HOSTNAME) || Utils.isEmpty(EMAIL_NOTIFICACAO);
+		
+		return !anyIsEmpty;
+	}
+
 	private static HtmlEmail factoryHTMLEmail() throws EmailException {
 		
 		HtmlEmail email = new HtmlEmail();
@@ -121,24 +129,33 @@ public class MailNotifycation {
 	
 	private static void sendEmail(List<Link> links, InternetAddress email, long newsCount) throws EmailException, IOException, TemplateException {
 		
-		HtmlEmail service = factoryHTMLEmail();
-		service.setSubject("Owl Links - Resumo de novos links - " + String.format("#%d", newsCount));		
-		service.setHtmlMsg(processTemplate(links, email.getPersonal()));		
-		service.addTo(email.getAddress(), email.getPersonal());	
-		service.send();
-			
+		if (existsConfigSMPT()) {
+			HtmlEmail service = factoryHTMLEmail();
+			service.setSubject("Owl Links - Resumo de novos links - " + String.format("#%d", newsCount));		
+			service.setHtmlMsg(processTemplate(links, email.getPersonal()));		
+			service.addTo(email.getAddress(), email.getPersonal());	
+			service.send();
+		} else {
+			Logger.error("Confogurações de envio de email não definidas - sendEmail");
+		}			
 	}
 
 	
 	private static void sendAlert(String subject, String htmlMsg) throws EmailException, IOException, TemplateException, AddressException {
-		HtmlEmail email = factoryHTMLEmail();
 		
-		email.setSubject(subject);		
-		email.setHtmlMsg(htmlMsg);		
+		if (existsConfigSMPT()) {
 		
-		email.addTo(EMAIL_NOTIFICACAO, "Alerta", "UTF-8");				
-		
-		email.send();			
+			HtmlEmail email = factoryHTMLEmail();
+			email.setSubject(subject);		
+			email.setHtmlMsg(htmlMsg);		
+			
+			email.addTo(EMAIL_NOTIFICACAO, "Alerta", "UTF-8");				
+			
+			email.send();			
+
+		} else {
+			Logger.error("Confogurações de envio de email não definidas - sendAlert");
+		}
 	}
 	
 	public static void sendAlertLink(String link) throws EmailException, IOException, TemplateException, AddressException {
