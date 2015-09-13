@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #variables
-activatorVersion="1.3.5"
+activatorVersion="1.3.6"
 sbtVersion="0.13.9"
 
 echo "=========================================="
@@ -11,17 +11,18 @@ echo "=========================================="
 sudo apt-get -y -q -f upgrade
 sudo add-apt-repository ppa:webupd8team/java -y
 sudo add-apt-repository ppa:git-core/ppa -y
-sudo apt-get -y -q install build-essential
-sudo apt-get -y -q install software-properties-common htop unzip
+sudo apt-get -y -q -f install build-essential
+sudo apt-get -y -q -f install software-properties-common htop unzip
 
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
 echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
 
 sudo apt-get -y -q update
 
+echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
 sudo apt-get -y -q install oracle-java8-installer
-sudo apt-get -y -q install oracle-java8-set-default
 sudo update-java-alternatives -s java-8-oracle
+sudo apt-get -y -q install oracle-java8-set-default
 
 sudo apt-get install -y -q mongodb-org
 
