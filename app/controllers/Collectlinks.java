@@ -17,6 +17,12 @@ public class Collectlinks extends Controller {
 	
 	public static final Form<Collectlink> formCollectlink = Form.form(Collectlink.class);
 
+
+	private static Boolean linkExists(String link) {
+		Integer countLink = Collectlink.find.where().eq("link", link).findRowCount();
+
+		return countLink >= 1 ? true : false;
+	}
 	
 	public static Result send() {	
 			    	
@@ -35,7 +41,17 @@ public class Collectlinks extends Controller {
         	// flash("error", String.format("A URL \"%s\" que você informou é inválida.", collectlink.link));
         	// return redirect(routes.Application.index());        	
         // }
-        
+
+        if (linkExists( collectlink.link )) {        	
+        	flash("error", "Uau! O link que você informou já foi sugerido.");
+        	return redirect(routes.Application.index());        	
+        }
+
+        if (Utils.isEmpty(collectlink.link)) {
+			flash("error", "Que pena! O link está em branco");
+        	return redirect(routes.Application.index());        	
+        }
+
         collectlink.save();    
         
 		Logger.debug("[Início] Envio de e-mails " + Utils.dateNow());       
