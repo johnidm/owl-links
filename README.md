@@ -46,10 +46,7 @@ Na pasta raiz do projeto execute o seguinte comandos para inciar o Owllinks:
 
 * `activator run`
 
-[http://localhost:9000](http://localhost:9000)
-
 ### Recomendação de livros
 
 * https://leanpub.com/playframeworknapratica
 * http://www.casadocodigo.com.br/products/livro-play-framework-java
-
