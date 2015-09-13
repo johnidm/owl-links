@@ -42,9 +42,11 @@ Você deve fazer a instalação dessas ferramentas de acordo com o Sistema Opera
 
 ##### Executando o projeto 
 
-Na pasta do projeto execute você pode executar os seguintes comandos 
+Na pasta raiz do projeto execute o seguinte comandos para inciar o Owllinks:
 
+* `activator run`
 
+[http://localhost:9000](http://localhost:9000)
 
 ### Recomendação de livros
 
