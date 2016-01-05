@@ -40,6 +40,10 @@ Você deve fazer a instalação dessas ferramentas de acordo com o Sistema Opera
 * `export OWLLINKS_SMTP_EMAIL="owl.links.notifications@gmail.com"`
 * `export OWLLINKS_SMTP_PASSWORD="poR4@7pu"`
 
+##### Importando dados
+
+* `mongoimport  -d owl-links -c links --file data/links.json`
+
 ##### Executando o projeto 
 
 Na pasta raiz do projeto execute o seguinte comandos para inciar o Owllinks:

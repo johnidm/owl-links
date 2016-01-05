@@ -28,6 +28,7 @@ public class MongoDB {
 		
 			String mongodb_url = System.getenv("OWLLINKS_MONGODB_URL");
 
+
 			DB db = new MongoClient( new MongoClientURI(mongodb_url)).getDB("owl-links");
 								
 			Jongo jongo = new Jongo(db);
