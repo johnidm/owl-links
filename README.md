@@ -1,6 +1,6 @@
 #Owl links App
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](http://owllinks.co/)
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](http://owl-links.herokuapp.com/)
 
 Owllinks é um projeto open source utilizado para compartilhar links relacionados a tecnologia.
 
